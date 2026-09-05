@@ -3,663 +3,768 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>🍂 赤峰—克什克腾—塞罕坝 秋季自驾规划</title>
+<title>赤峰—克什克腾—塞罕坝 中秋+国庆7天自驾秋色大环线</title>
+<style>
+  @font-face { font-family:'Outfit'; src:url('../t-wulanbutong/assets/fonts/Outfit-Regular.ttf') format('truetype'); font-weight:400; }
+  @font-face { font-family:'Outfit'; src:url('../t-wulanbutong/assets/fonts/Outfit-Bold.ttf') format('truetype'); font-weight:700; }
+  @font-face { font-family:'Lora'; src:url('../t-wulanbutong/assets/fonts/Lora-Regular.ttf') format('truetype'); font-weight:400; }
+  @font-face { font-family:'Lora'; src:url('../t-wulanbutong/assets/fonts/Lora-Bold.ttf') format('truetype'); font-weight:700; }
+</style>
 <style>
   :root {
-    --bg: #1a1410;
-    --bg2: #221a14;
-    --card: #2a2018;
-    --card2: #332820;
-    --border: #4a3828;
-    --text: #e8dcc8;
-    --dim: #9a8870;
-    --amber: #d4943a;
-    --amber2: #e8a84a;
-    --green: #6b9a4a;
-    --red: #c45a3a;
-    --yellow: #d4b04a;
-    --blue: #5a8aaa;
-    --radius: 6px;
+    --bg: #FAF5EC;
+    --bg2: #EFE6D4;
+    --ink: #2A1E15;
+    --muted: #8A7A66;
+    --rule: #E0D4BC;
+    --accent: #A8421E;
+    --accent2: #5C7A3F;
+    --gold: #C8841E;
+    --font: 'Outfit','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;
+    --serif: 'Lora','Songti SC','SimSun',serif;
   }
-  * { margin:0; padding:0; box-sizing:border-box; }
-  body {
-    font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    font-size: 13px;
-    line-height: 1.5;
-    -webkit-font-smoothing: antialiased;
-  }
-  /* ===== Layout ===== */
-  .wrap { display: flex; min-height: 100vh; }
-  nav {
-    position: fixed; top:0; left:0; width:180px; height:100vh;
-    background: var(--bg2); border-right: 1px solid var(--border);
-    padding: 14px 0; overflow-y: auto; z-index: 100;
-  }
-  nav .logo { font-size:15px; font-weight:700; color:var(--amber); padding:0 16px 12px; border-bottom:1px solid var(--border); margin-bottom:8px; }
-  nav a {
-    display:block; padding:6px 16px; color:var(--dim); text-decoration:none;
-    font-size:12px; transition: all .15s; border-left: 3px solid transparent;
-  }
-  nav a:hover, nav a.active { color:var(--amber); border-left-color:var(--amber); background:rgba(212,148,58,.06); }
-  nav a .dn { color:var(--amber2); font-weight:600; margin-right:4px; }
-  main { margin-left:180px; flex:1; padding: 16px 20px 40px; max-width: calc(100vw - 180px); }
-  /* ===== Header ===== */
-  .header {
-    background: linear-gradient(135deg, #2a1a0e, #3a2418);
-    border: 1px solid var(--border); border-radius: var(--radius);
-    padding: 16px 20px; margin-bottom: 14px;
-  }
-  .header h1 { font-size: 18px; color: var(--amber); margin-bottom: 4px; }
-  .header .sub { font-size: 12px; color: var(--dim); }
-  .header .stats { display:flex; gap:16px; margin-top:10px; flex-wrap:wrap; }
-  .header .stat { background:var(--card); padding:4px 10px; border-radius:4px; font-size:12px; }
-  .header .stat b { color:var(--amber2); }
-  .header .stat .v { color: var(--text); }
-  .header .core { display:flex; flex-wrap:wrap; gap:6px; margin-top:10px; }
-  .header .tag { font-size:11px; padding:2px 8px; border-radius:10px; background:var(--card2); color:var(--dim); }
-  .header .tag.ok { color:var(--green); border:1px solid rgba(107,154,74,.3); }
-  .header .tag.no { color:var(--red); border:1px solid rgba(196,90,58,.3); }
-  .header .tag.warn { color:var(--yellow); border:1px solid rgba(212,176,74,.3); }
-  /* ===== Section ===== */
-  section { margin-bottom: 18px; }
-  section > h2 {
-    font-size:14px; color:var(--amber); margin-bottom:8px;
-    padding-bottom:4px; border-bottom:1px solid var(--border);
-    display:flex; align-items:center; gap:6px;
-  }
-  section > h2 .num { background:var(--amber); color:var(--bg); font-size:11px; padding:1px 6px; border-radius:3px; }
-  /* ===== Route Flow Strip ===== */
-  .flow { display:flex; align-items:stretch; gap:0; overflow-x:auto; margin-bottom:8px; }
-  .flow-item {
-    flex:1; min-width:120px; background:var(--card); border:1px solid var(--border);
-    border-radius: var(--radius); padding:8px 10px; position:relative; margin-right:12px;
-  }
-  .flow-item::after {
-    content:'→'; position:absolute; right:-10px; top:50%; transform:translateY(-50%);
-    color:var(--amber); font-size:16px; font-weight:700; z-index:2;
-  }
-  .flow-item:last-child::after { display:none; }
-  .flow-item .dnum { font-size:11px; color:var(--amber2); font-weight:700; }
-  .flow-item .ddate { font-size:11px; color:var(--dim); }
-  .flow-item .droute { font-size:11px; color:var(--text); margin-top:3px; line-height:1.3; }
-  .flow-item .dmeta { display:flex; gap:8px; margin-top:4px; font-size:10px; color:var(--dim); }
-  .flow-item .dmeta .km { color:var(--amber2); }
-  .flow-item.peak { border-color:var(--amber); box-shadow:0 0 0 1px rgba(212,148,58,.2); }
-  .flow-item.peak .dnum { color:var(--amber); }
-  /* ===== Red Lines ===== */
-  .redlines { display:flex; gap:8px; flex-wrap:wrap; margin-top:6px; }
-  .redline { background:rgba(196,90,58,.1); border:1px solid rgba(196,90,58,.3); border-radius:4px; padding:4px 8px; font-size:11px; }
-  .redline b { color:var(--red); }
-  /* ===== Day Cards ===== */
-  .day-card {
-    background:var(--card); border:1px solid var(--border); border-radius:var(--radius);
-    margin-bottom:10px; overflow:hidden;
-  }
-  .day-card.peak { border-color:var(--amber); }
-  .day-head {
-    display:flex; align-items:center; gap:10px; padding:8px 12px;
-    background:var(--card2); border-bottom:1px solid var(--border); cursor:pointer;
-  }
-  .day-card.peak .day-head { background:linear-gradient(90deg, rgba(212,148,58,.12), var(--card2)); }
-  .day-head .badge { font-size:12px; font-weight:700; color:var(--amber); min-width:32px; }
-  .day-head .title { font-size:13px; font-weight:600; flex:1; }
-  .day-head .meta { font-size:11px; color:var(--dim); }
-  .day-head .meta .km { color:var(--amber2); }
-  .day-body { padding: 8px 12px; }
-  /* Timeline table */
-  .tl { width:100%; border-collapse:collapse; }
-  .tl td { padding:3px 6px; vertical-align:top; border-bottom:1px solid rgba(74,56,40,.4); font-size:12px; }
-  .tl tr:last-child td { border-bottom:none; }
-  .tl .t { color:var(--amber2); font-weight:600; white-space:nowrap; width:80px; }
-  .tl .hard { color:var(--red); }
-  .tl .gas { color:var(--green); }
-  .day-notes { margin-top:6px; display:flex; flex-wrap:wrap; gap:4px; }
-  .day-notes .note { font-size:11px; padding:2px 7px; border-radius:3px; background:var(--bg2); color:var(--dim); }
-  .day-notes .note.gas { color:var(--green); border:1px solid rgba(107,154,74,.2); }
-  .day-notes .note.hotel { color:var(--blue); border:1px solid rgba(90,138,170,.2); }
-  .day-notes .note.warn { color:var(--yellow); border:1px solid rgba(212,176,74,.2); }
-  .day-notes .note.cold { color:var(--blue); border:1px solid rgba(90,138,170,.2); }
-  .day-notes .note.tip { color:var(--amber2); border:1px solid rgba(212,148,58,.2); }
-  /* Decision tree box */
-  .d3-tree { margin-top:8px; }
-  .d3-tree .opt { display:flex; gap:8px; padding:6px 8px; border-radius:4px; margin-bottom:4px; font-size:12px; align-items:flex-start; }
-  .d3-tree .opt .lbl { font-weight:700; min-width:80px; }
-  .d3-tree .opt1 { background:rgba(107,154,74,.08); border:1px solid rgba(107,154,74,.2); }
-  .d3-tree .opt1 .lbl { color:var(--green); }
-  .d3-tree .opt2 { background:rgba(212,176,74,.08); border:1px solid rgba(212,176,74,.2); }
-  .d3-tree .opt2 .lbl { color:var(--yellow); }
-  .d3-tree .opt3 { background:rgba(196,90,58,.08); border:1px solid rgba(196,90,58,.2); }
-  .d3-tree .opt3 .lbl { color:var(--red); }
-  .d3-tree .opt .desc { color:var(--dim); flex:1; }
-  .d3-tree .opt .judge { color:var(--text); font-size:11px; }
-  /* ===== Multi-col tables ===== */
-  .grid2 { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
-  .grid3 { display:grid; grid-template-columns:1fr 1fr 1fr; gap:12px; }
-  @media(max-width:900px){ .grid2,.grid3 { grid-template-columns:1fr; } }
-  .panel { background:var(--card); border:1px solid var(--border); border-radius:var(--radius); overflow:hidden; }
-  .panel > .ph { padding:6px 10px; background:var(--card2); font-size:12px; font-weight:600; color:var(--amber); border-bottom:1px solid var(--border); }
-  .panel table { width:100%; border-collapse:collapse; }
-  .panel th { padding:4px 8px; text-align:left; font-size:11px; color:var(--dim); font-weight:600; border-bottom:1px solid var(--border); }
-  .panel td { padding:4px 8px; font-size:11px; border-bottom:1px solid rgba(74,56,40,.3); vertical-align:top; }
-  .panel tr:last-child td { border-bottom:none; }
-  .panel td .ok { color:var(--green); }
-  .panel td .no { color:var(--red); }
-  .panel td .warn { color:var(--yellow); }
-  /* ===== Checklist ===== */
-  .checklist { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; }
-  @media(max-width:900px){ .checklist { grid-template-columns:1fr; } }
-  .checklist .group { background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:8px 10px; }
-  .checklist .group h4 { font-size:12px; color:var(--amber); margin-bottom:6px; }
-  .checklist label { display:flex; align-items:flex-start; gap:5px; font-size:11px; color:var(--text); margin-bottom:3px; cursor:pointer; }
-  .checklist input[type=checkbox] { accent-color:var(--amber); margin-top:2px; flex-shrink:0; }
-  .checklist input[type=checkbox]:checked + span { text-decoration:line-through; color:var(--dim); }
-  /* ===== Equipment ===== */
-  .equip { display:grid; grid-template-columns:repeat(4,1fr); gap:8px; }
-  @media(max-width:900px){ .equip { grid-template-columns:repeat(2,1fr); } }
-  .equip .cat { background:var(--card); border:1px solid var(--border); border-radius:4px; padding:6px 8px; }
-  .equip .cat h5 { font-size:11px; color:var(--amber2); margin-bottom:3px; }
-  .equip .cat p { font-size:11px; color:var(--dim); line-height:1.4; }
-  .noban { background:rgba(196,90,58,.08); border:1px solid rgba(196,90,58,.2); border-radius:4px; padding:5px 10px; font-size:11px; color:var(--red); margin-top:6px; }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--font);background:var(--bg);color:var(--ink);font-size:16px;line-height:1.7}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 24px}
+
+  /* ===== Hero ===== */
+  .hero{position:relative;min-height:560px;display:flex;align-items:flex-end}
+  .hero img.hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .hero .overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(42,30,21,.08) 0%,rgba(42,30,21,.55) 75%,rgba(42,30,21,.8) 100%)}
+  .hero-content{position:relative;z-index:2;width:100%;padding-bottom:52px;color:#FCFAF6}
+  .hero-kicker{font-size:.82rem;letter-spacing:.25em;text-transform:uppercase;font-weight:700;opacity:.92}
+  .hero h1{font-family:var(--serif);font-size:clamp(1.8rem,4.5vw,3rem);line-height:1.25;font-weight:700;margin:10px 0 8px;text-shadow:0 2px 18px rgba(0,0,0,.35)}
+  .hero-sub{font-size:1rem;opacity:.95;margin-bottom:22px}
+  .chips{display:flex;flex-wrap:wrap;gap:10px}
+  .chip{background:rgba(252,250,246,.14);backdrop-filter:blur(8px);border:1px solid rgba(252,250,246,.35);border-radius:999px;padding:6px 16px;font-size:.86rem;font-weight:600}
+  .chip b{font-family:var(--serif);font-size:1.02rem}
+
+  /* ===== Sticky nav ===== */
+  .nav{position:sticky;top:0;z-index:50;background:rgba(250,245,236,.93);backdrop-filter:blur(10px);border-bottom:1px solid var(--rule)}
+  .nav-inner{display:flex;gap:4px;overflow-x:auto;padding:0 16px;scrollbar-width:none}
+  .nav-inner::-webkit-scrollbar{display:none}
+  .nav a{flex-shrink:0;padding:12px 14px;font-size:.88rem;font-weight:600;color:var(--muted);text-decoration:none;border-bottom:2px solid transparent}
+  .nav a:hover{color:var(--accent)}
+  .nav a.active{color:var(--accent);border-bottom-color:var(--accent)}
+
+  /* ===== Sections ===== */
+  section{padding:56px 0 8px;scroll-margin-top:56px}
+  .sec-head{display:flex;align-items:baseline;gap:14px;margin-bottom:26px}
+  .sec-num{font-family:var(--serif);font-size:2.4rem;color:var(--accent);opacity:.35;line-height:1}
+  h2{font-size:1.5rem;font-weight:700;letter-spacing:.02em}
+  h2 .en{display:block;font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);font-weight:600;margin-top:2px}
+  h3{font-size:1.08rem;font-weight:700;margin:22px 0 10px;color:var(--accent)}
+  h3:first-child{margin-top:0}
+  p{margin-bottom:12px}
+  mark.key{background:none;color:var(--accent);font-weight:600}
+  .lead{font-size:1.02rem;color:var(--ink)}
+  .muted{color:var(--muted)}
+  .small{font-size:.85rem}
+
+  /* ===== Profile grid ===== */
+  .profile-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px}
+  .profile-card{background:var(--bg2);border-radius:10px;padding:16px 18px}
+  .profile-card .k{font-size:.78rem;color:var(--muted);letter-spacing:.08em;margin-bottom:4px}
+  .profile-card .v{font-weight:700;font-size:1rem;line-height:1.45}
+  .profile-card .v b{color:var(--accent)}
+
+  /* ===== Strategy ===== */
+  .strat-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+  .strat{display:flex;gap:14px;background:#fff;border:1px solid var(--rule);border-radius:10px;padding:16px 18px}
+  .strat .n{font-family:var(--serif);font-size:1.5rem;color:var(--accent);line-height:1.15;min-width:30px}
+  .strat .t{font-weight:700;margin-bottom:3px;font-size:.95rem}
+  .strat .d{font-size:.86rem;color:var(--muted);line-height:1.6}
+
+  /* ===== Overview ===== */
+  .table-wrap{overflow-x:auto;overflow-y:auto;max-height:600px;border:1px solid var(--rule);border-radius:10px;background:#fff}
+  table{width:100%;border-collapse:collapse;font-size:.9rem;min-width:640px}
+  th{text-align:left;padding:12px 14px;background:var(--bg2);font-weight:700;font-size:.82rem;letter-spacing:.04em;color:var(--ink);border-bottom:1px solid var(--rule);position:sticky;top:0}
+  td{padding:11px 14px;border-bottom:1px solid var(--rule);vertical-align:top}
+  tr:last-child td{border-bottom:none}
+  tr:hover td{background:rgba(168,66,30,.04)}
+  td .day-tag{display:inline-block;background:var(--accent);color:#fff;font-weight:700;border-radius:6px;padding:1px 9px;font-size:.8rem;margin-right:6px}
+  td .day-tag.peak{background:var(--gold)}
+  .dist{font-family:var(--serif);font-weight:700;color:var(--accent2);white-space:nowrap}
+  .chart-figure{margin:30px 0}
+  .chart-figure figcaption{font-size:.92rem;font-weight:700;color:var(--ink);margin-bottom:10px}
+  .chart-figure figcaption::before{content:"▍";color:var(--accent);margin-right:6px}
+
+  /* ===== Red lines ===== */
+  .redlines{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+  .redline{background:#FDF0EA;border:1px solid rgba(168,66,30,.25);border-left:4px solid var(--accent);border-radius:0 8px 8px 0;padding:10px 16px;font-size:.88rem;flex:1;min-width:200px}
+  .redline b{color:var(--accent);font-family:var(--serif);font-size:1rem}
+
+  /* ===== Day cards ===== */
+  .day{background:#fff;border:1px solid var(--rule);border-radius:14px;margin:26px 0;overflow:hidden}
+  .day.peak{border-color:var(--gold);box-shadow:0 0 0 1px rgba(200,132,30,.2)}
+  .day-head{display:flex;flex-wrap:wrap;align-items:center;gap:12px;padding:18px 24px;border-bottom:1px solid var(--rule);background:linear-gradient(90deg,var(--bg2),transparent)}
+  .day.peak .day-head{background:linear-gradient(90deg,rgba(200,132,30,.12),transparent)}
+  .day-badge{font-family:var(--serif);font-size:1.6rem;font-weight:700;color:var(--accent);line-height:1}
+  .day.peak .day-badge{color:var(--gold)}
+  .day-title{font-size:1.12rem;font-weight:700;flex:1;min-width:200px}
+  .day-date{font-size:.82rem;color:var(--muted);font-weight:600;background:var(--bg2);padding:4px 12px;border-radius:999px;white-space:nowrap}
+  .day-body{display:grid;grid-template-columns:1.7fr 1fr;gap:0}
+  .day-main{padding:20px 24px}
+  .day-aside{padding:20px 24px;border-left:1px solid var(--rule);background:var(--bg2);border-radius:0 0 14px 0}
+
+  .timeline{list-style:none}
+  .timeline li{position:relative;padding:0 0 16px 26px;border-left:2px solid var(--rule)}
+  .timeline li:last-child{padding-bottom:2px;border-left-color:transparent}
+  .timeline li::before{content:"";position:absolute;left:-6px;top:7px;width:10px;height:10px;border-radius:50%;background:var(--bg);border:2.5px solid var(--accent)}
+  .timeline li.hard::before{border-color:var(--gold);background:#FDF0EA}
+  .timeline li.gas::before{border-color:var(--accent2);background:#EFF5F0}
+  .timeline .tm{font-family:var(--serif);font-weight:700;color:var(--accent);font-size:.94rem;margin-right:8px}
+  .timeline li.hard .tm{color:var(--gold)}
+  .timeline li.gas .tm{color:var(--accent2)}
+  .timeline .ev{font-size:.92rem;line-height:1.65}
+  .timeline .ev .poI{font-weight:700}
+  .timeline .ev .sub{display:block;color:var(--muted);font-size:.84rem;margin-top:1px}
+
+  .aside-block{margin-bottom:16px}
+  .aside-block:last-child{margin-bottom:0}
+  .aside-block .k{font-size:.74rem;letter-spacing:.14em;color:var(--accent);font-weight:700;margin-bottom:5px}
+  .aside-block .v{font-size:.87rem;line-height:1.65}
+  .note{background:#FDF6EE;border-left:3px solid var(--accent);border-radius:0 8px 8px 0;padding:10px 14px;font-size:.85rem;margin:12px 0;line-height:1.6}
+  .note.green{background:#EFF5F0;border-left-color:var(--accent2)}
+  .note.gold{background:#FBF3E6;border-left-color:var(--gold)}
+  .note b{color:var(--accent)}
+  .note.green b{color:var(--accent2)}
+  .note.gold b{color:var(--gold)}
+
+  .day-photo{margin:0}
+  .day-photo img{width:100%;height:230px;object-fit:cover;display:block}
+  .day-photo figcaption{font-size:.78rem;color:var(--muted);padding:8px 24px 14px}
+
+  /* ===== Decision tree ===== */
+  .d3-tree{margin:16px 0}
+  .d3-tree .d3-head{font-size:.92rem;font-weight:700;color:var(--accent);margin-bottom:10px}
+  .d3-opt{display:flex;gap:12px;padding:12px 16px;border-radius:10px;margin-bottom:8px;font-size:.88rem;align-items:flex-start}
+  .d3-opt .lbl{font-weight:700;min-width:90px;font-family:var(--serif)}
+  .d3-opt .desc{color:var(--muted);flex:1;line-height:1.6}
+  .d3-opt .judge{font-size:.82rem;color:var(--ink);margin-top:2px}
+  .d3-opt.opt1{background:#EFF5F0;border:1px solid rgba(92,122,63,.25)}
+  .d3-opt.opt1 .lbl{color:var(--accent2)}
+  .d3-opt.opt2{background:#FBF3E6;border:1px solid rgba(200,132,30,.25)}
+  .d3-opt.opt2 .lbl{color:var(--gold)}
+  .d3-opt.opt3{background:#FDF0EA;border:1px solid rgba(168,66,30,.25)}
+  .d3-opt.opt3 .lbl{color:var(--accent)}
+
   /* ===== Budget ===== */
-  .budget { display:flex; gap:16px; align-items:center; }
-  .budget table { flex:1; }
-  .budget .total { text-align:center; }
-  .budget .total .big { font-size:28px; color:var(--amber); font-weight:700; }
-  .budget .total .lbl { font-size:11px; color:var(--dim); }
+  .budget-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start}
+  .total-card{background:var(--ink);color:#FCFAF6;border-radius:12px;padding:22px 24px;margin-top:30px}
+  .total-card .num{font-family:var(--serif);font-size:2.6rem;font-weight:700;color:#F0B27A}
+  .total-card .lbl{font-size:.85rem;opacity:.85}
+  .total-card .row{display:flex;justify-content:space-between;align-items:baseline}
+
+  /* ===== Checklist ===== */
+  .checklist-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .check-group{background:#fff;border:1px solid var(--rule);border-radius:10px;padding:16px 18px}
+  .check-group h4{font-size:.92rem;color:var(--accent);margin-bottom:10px}
+  .check-group label{display:flex;align-items:flex-start;gap:6px;font-size:.86rem;color:var(--ink);margin-bottom:6px;cursor:pointer}
+  .check-group input[type=checkbox]{accent-color:var(--accent);margin-top:3px;flex-shrink:0}
+  .check-group input[type=checkbox]:checked+span{text-decoration:line-through;color:var(--muted)}
+
+  /* ===== Gear ===== */
+  .gear-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+  .gear-cat{background:#fff;border:1px solid var(--rule);border-radius:10px;padding:14px 16px}
+  .gear-cat h5{font-size:.88rem;color:var(--accent);margin-bottom:6px}
+  .gear-cat p{font-size:.84rem;color:var(--muted);line-height:1.5}
+  .gear-cat p b{color:var(--ink)}
+  .noban{background:#FDF0EA;border:1px solid rgba(168,66,30,.2);border-radius:8px;padding:10px 16px;font-size:.85rem;color:var(--accent);margin-top:14px}
+
+  /* ===== Panel (decisions/emergency/appendix) ===== */
+  .panel{background:#fff;border:1px solid var(--rule);border-radius:10px;overflow:hidden}
+  .panel table{min-width:0}
+  .panel th{position:static}
+  .panel td .ok{color:var(--accent2);font-weight:700}
+  .panel td .no{color:var(--accent);font-weight:700}
+  .panel td .warn{color:var(--gold);font-weight:700}
+
+  .two-col{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+
   /* ===== Summary ===== */
-  .summary { background:linear-gradient(135deg,var(--card),var(--card2)); border:1px solid var(--amber); border-radius:var(--radius); padding:12px 16px; }
-  .summary p { font-size:12px; color:var(--text); margin-bottom:6px; }
-  .summary .vars { display:flex; gap:12px; margin-top:8px; }
-  .summary .var { background:var(--bg2); padding:4px 10px; border-radius:4px; font-size:11px; }
-  .summary .var b { color:var(--amber2); }
-  /* ===== Appendix ===== */
-  .appendix table { width:100%; border-collapse:collapse; }
-  .appendix th { padding:4px 8px; text-align:left; font-size:11px; color:var(--dim); border-bottom:1px solid var(--border); }
-  .appendix td { padding:3px 8px; font-size:11px; border-bottom:1px solid rgba(74,56,40,.3); vertical-align:top; }
-  .appendix td:first-child { min-width:180px; }
-  .appendix .ok { color:var(--green); }
-  .appendix .no { color:var(--red); }
-  .appendix .warn { color:var(--yellow); }
-  /* Misc */
-  .collapsed .day-body { display:none; }
-  .hl { color:var(--amber2); font-weight:600; }
-  .strike { text-decoration:line-through; color:var(--dim); }
-  @media print {
-    nav { display:none; } main { margin-left:0; max-width:100%; }
-    body { background:#fff; color:#000; } .day-body { display:block !important; }
+  .summary-box{background:linear-gradient(135deg,var(--bg2),#fff);border:2px solid var(--gold);border-radius:14px;padding:24px 28px}
+  .summary-box p{font-size:.96rem;margin-bottom:10px}
+  .summary-box .vars{display:flex;flex-wrap:wrap;gap:12px;margin-top:14px}
+  .summary-box .var{background:var(--bg);padding:6px 14px;border-radius:8px;font-size:.86rem}
+  .summary-box .var b{color:var(--accent)}
+  .summary-box .closing{margin-top:14px;color:var(--muted);font-style:italic;font-family:var(--serif)}
+
+  /* ===== Footer ===== */
+  footer{margin-top:56px;border-top:1px solid var(--rule);padding:26px 0 40px}
+  footer .foot-note{font-size:.82rem;color:var(--muted)}
+
+  /* ===== Responsive ===== */
+  @media(max-width:860px){
+    .strat-grid,.budget-grid,.two-col{grid-template-columns:1fr}
+    .day-body{grid-template-columns:1fr}
+    .day-aside{border-left:none;border-top:1px solid var(--rule);border-radius:0}
+    .day-photo img{height:180px}
+    .checklist-grid{grid-template-columns:1fr}
+    .gear-grid{grid-template-columns:repeat(2,1fr)}
+  }
+  @media print{
+    .nav{display:none}
+    .day{page-break-inside:avoid}
+    section{padding:30px 0 4px}
+    .hero{min-height:380px}
   }
 </style>
 </head>
 <body>
-<div class="wrap">
-<nav>
-  <div class="logo">🍂 秋季自驾</div>
-  <a href="#overview" class="active"><span class="dn">▸</span>总览 & 红线</a>
-  <a href="#d1"><span class="dn">D1</span>北京→巴林右旗</a>
-  <a href="#d2"><span class="dn">D2</span>白塔→石林南门</a>
-  <a href="#d3"><span class="dn">D3</span>达达线·峰值日</a>
-  <a href="#d4"><span class="dn">D4</span>乌兰布统深度</a>
-  <a href="#d5"><span class="dn">D5</span>蛤蟆坝慢游</a>
-  <a href="#d6"><span class="dn">D6</span>塞罕坝林海</a>
-  <a href="#d7"><span class="dn">D7</span>返京收尾</a>
-  <a href="#decisions"><span class="dn">▸</span>决策记录</a>
-  <a href="#tasks"><span class="dn">▸</span>行前任务</a>
-  <a href="#equip"><span class="dn">▸</span>装备清单</a>
-  <a href="#emergency"><span class="dn">▸</span>应急速查</a>
-  <a href="#budget"><span class="dn">▸</span>预算参考</a>
-  <a href="#summary"><span class="dn">▸</span>终版总纲</a>
-  <a href="#appendix"><span class="dn">▸</span>核实附录</a>
+
+<!-- ================= HERO ================= -->
+<header class="hero">
+  <img class="hero-img" src="assets/hero_autumn.jpg" alt="赤峰秋季草原公路">
+  <div class="overlay"></div>
+  <div class="hero-content wrap">
+    <div class="hero-kicker">Inner Mongolia · Self-drive Loop · Autumn Foliage</div>
+    <h1>赤峰—克什克腾—塞罕坝<br>中秋+国庆 7天自驾秋色大环线</h1>
+    <div class="hero-sub">2026.9.25（周五·中秋）出发 — 10.1（周四·国庆）回京 · 全程约 2100km · 不回头大环线</div>
+    <div class="chips">
+      <span class="chip">🚗 SUV <b>~2100km</b></span>
+      <span class="chip">📅 中秋3天+请假3天 <b>国庆保留6天</b></span>
+      <span class="chip">💰 总预算 <b>≈5800元</b></span>
+      <span class="chip">🎫 门票目标 <b>0元</b></span>
+      <span class="chip">⏰ 全程仅 <b>2个闹钟</b></span>
+      <span class="chip">👨‍👩‍👦 2大人+1小童</span>
+    </div>
+  </div>
+</header>
+
+<!-- ================= NAV ================= -->
+<nav class="nav">
+  <div class="nav-inner wrap">
+    <a href="#profile">旅行档案</a>
+    <a href="#strategy">核心策略</a>
+    <a href="#overview">行程总览</a>
+    <a href="#day-1">D1 赶路</a>
+    <a href="#day-2">D2 白塔</a>
+    <a href="#day-3">D3 峰值日</a>
+    <a href="#day-4">D4 深度</a>
+    <a href="#day-5">D5 慢游</a>
+    <a href="#day-6">D6 林海</a>
+    <a href="#day-7">D7 返京</a>
+    <a href="#budget">预算</a>
+    <a href="#tasks">行前任务</a>
+    <a href="#gear">装备</a>
+    <a href="#emergency">应急</a>
+    <a href="#decisions">决策记录</a>
+    <a href="#summary">总纲</a>
+    <a href="#appendix">核实附录</a>
+  </div>
 </nav>
 
-<main>
-  <!-- ===== HEADER ===== -->
-  <div class="header" id="overview">
-    <h1>🍂 赤峰—克什克腾—塞罕坝 秋季自驾 · 最终完整版规划</h1>
-    <div class="sub">9.25（周五·中秋）北京出发 → 10.1（周四·国庆）回京 ｜ 全程约 2100km ｜ 不回头大环线 ｜ 2026.9.5 核订</div>
-    <div class="stats">
-      <div class="stat"><b>7</b><span class="v"> 天</span></div>
-      <div class="stat"><b>~2100</b><span class="v"> km</span></div>
-      <div class="stat"><b>6</b><span class="v"> 晚住宿</span></div>
-      <div class="stat"><b>~5800</b><span class="v"> 元 (2大1小)</span></div>
-      <div class="stat"><b>0</b><span class="v"> 元门票目标</span></div>
-      <div class="stat"><b>2</b><span class="v"> 个闹钟</span></div>
-    </div>
-    <div class="core">
-      <span class="tag ok">✅ 塞罕坝大门票免费</span>
-      <span class="tag ok">✅ 乌兰布统304省道穿行免费</span>
-      <span class="tag ok">✅ 经乌高速G1611已通车</span>
-      <span class="tag warn">⚠️ S220延长线面层10月才摊完</span>
-      <span class="tag warn">⚠️ 天太永小桥8.23冲垮待修</span>
-      <span class="tag no">❌ G233经棚-桦木沟封闭至年底</span>
-      <span class="tag">🚗 SUV主场</span>
-      <span class="tag">🔥 禁火期9.15-11.15</span>
-    </div>
+<main class="wrap">
+
+<!-- ================= PROFILE ================= -->
+<section id="profile">
+  <div class="sec-head"><span class="sec-num">一</span><h2>旅行档案<span class="en">Trip Profile</span></h2></div>
+  <div class="profile-grid">
+    <div class="profile-card"><div class="k">时间窗</div><div class="v">9.25（五）05:30出发<br>— 10.1（四）15:00抵京</div></div>
+    <div class="profile-card"><div class="k">假期策略</div><div class="v">中秋3天+请假3天+国庆1天<br><b>国庆剩6天完整保留</b></div></div>
+    <div class="profile-card"><div class="k">人员</div><div class="v">2大人 + 1小童<br>全程免费段，0检票排队</div></div>
+    <div class="profile-card"><div class="k">交通</div><div class="v">自家SUV自驾<br>柏油主线+土路支线都能走</div></div>
+    <div class="profile-card"><div class="k">总里程 / 预算</div><div class="v">~2100km · 约 <b>5800元</b><br>门票体验支出目标 0元</div></div>
+    <div class="profile-card"><div class="k">核心定位</div><div class="v">沙漠边缘+金杨+白桦+落叶松<br>高原湖+候鸟+草原公路</div></div>
   </div>
+</section>
 
-  <!-- ===== ROUTE FLOW ===== -->
-  <section>
-    <h2><span class="num">一</span>7天路线总览</h2>
-    <div class="flow">
-      <div class="flow-item">
-        <div class="dnum">D1 · 9.25 五</div>
-        <div class="droute">北京05:30→G45→赤峰→乌丹→玉龙沙湖外围→G16→巴林右旗</div>
-        <div class="dmeta"><span class="km">~650km</span><span>大板镇</span><span>赶路+玩沙</span></div>
+<!-- ================= STRATEGY ================= -->
+<section id="strategy">
+  <div class="sec-head"><span class="sec-num">二</span><h2>核心策略<span class="en">Core Strategy</span></h2></div>
+  <p class="lead">这趟行程的设计围绕以下 6 条核心设定——<mark class="key">每一条都是行程成立的根基</mark>，不要随意放弃。</p>
+  <div class="strat-grid">
+    <div class="strat"><div class="n">1</div><div><div class="t">只用中秋+请假，保住国庆6天</div><div class="d">中秋3天 + 请假3天 + 国庆1天 = 7天行程；国庆剩余6天完整保留，不与全国大车流正面冲突。</div></div></div>
+    <div class="strat"><div class="n">2</div><div><div class="t">全程仅2个转场闹钟</div><div class="d">D1 05:30（避京承出京车流）、D7 07:30（避承德绕城）；其余5天自然醒，不看晨雾，黄金时段改日落。</div></div></div>
+    <div class="strat"><div class="n">3</div><div><div class="t">0景区通票 / 0检票排队</div><div class="d">全程走免费段：塞罕坝大门票免费、乌兰布统304省道穿行免费、达里湖南北岸免费、辽庆州白塔免费。省约500元门票。</div></div></div>
+    <div class="strat"><div class="n">4</div><div><div class="t">不回头大环线</div><div class="d">北京→赤峰→克什克腾→乌兰布统→塞罕坝→围场→承德→北京，一条线上集齐沙漠、金杨、白桦、落叶松、高原湖、候鸟、草原公路。</div></div></div>
+    <div class="strat"><div class="n">5</div><div><div class="t">D3默认高速直达乌兰布统</div><div class="d">S220延长线面层10月才摊完，中秋通车小概率；默认贡格尔收费站上G16→转G1611经乌高速，全程高速1.5h零悬念。</div></div></div>
+    <div class="strat"><div class="n">6</div><div><div class="t">10.1返京高速免费</div><div class="d">10.1为国庆高速免费首日（00:00起），当天返京高速费0元；进京方向反向不堵，避开晚高峰即可。</div></div></div>
+  </div>
+</section>
+
+<!-- ================= OVERVIEW ================= -->
+<section id="overview">
+  <div class="sec-head"><span class="sec-num">三</span><h2>行程总览<span class="en">7-Day Overview</span></h2></div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Day</th><th>日期</th><th>路线</th><th>车程</th><th>过夜</th><th>主题</th></tr></thead>
+      <tbody>
+        <tr><td><span class="day-tag">D1</span></td><td>9.25 五</td><td>北京05:30→G45→赤峰→乌丹→玉龙沙湖外围→G16→巴林右旗</td><td class="dist">~650km</td><td>大板镇</td><td>赶路+玩沙</td></tr>
+        <tr><td><span class="day-tag">D2</span></td><td>9.26 六</td><td>巴林右旗→辽庆州白塔→索博日嘎→石林南门</td><td class="dist">~250km</td><td>石林南门</td><td>白塔+金杨</td></tr>
+        <tr><td><span class="day-tag peak">D3</span></td><td>9.27 日</td><td>黄岗梁→铁砂线→白音敖包→达达线+达里湖南北岸→贡格尔上G16→G1611→乌兰布统</td><td class="dist">~360km</td><td>元宝山村</td><td>秋色峰值</td></tr>
+        <tr><td><span class="day-tag">D4</span></td><td>9.28 一</td><td>夹皮沟→北沟→东沟→透风沟日落</td><td class="dist">~120km</td><td>元宝山村</td><td>免费段深度</td></tr>
+        <tr><td><span class="day-tag">D5</span></td><td>9.29 二</td><td>蛤蟆坝主干道→小河头/花咕噜台→天太永补位</td><td class="dist">~100km</td><td>元宝山村</td><td>慢游日</td></tr>
+        <tr><td><span class="day-tag">D6</span></td><td>9.30 三</td><td>乌兰布统南下→塞罕坝（泰丰湖/月亮湖/点将台）</td><td class="dist">~140km</td><td>机械林场镇</td><td>林海章节</td></tr>
+        <tr><td><span class="day-tag">D7</span></td><td>10.1 四</td><td>御道口→S256→围场→S50承围高速→武烈河打卡→北京</td><td class="dist">~500km</td><td>到家</td><td>顺路收尾</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <figure class="chart-figure">
+    <figcaption>逐日驾驶里程分布（km）——两个赶路日夹着五天慢玩</figcaption>
+    <div id="chart-mileage" style="width:100%;min-height:340px"></div>
+  </figure>
+
+  <h3>⏰ 全程仅有的5条硬性时间红线</h3>
+  <div class="redlines">
+    <div class="redline"><b>D1 05:30</b> 前出京 — 京承6:00后出京车流快速堆积</div>
+    <div class="redline"><b>D1 17:30</b> 前收工 — G306无路灯+牛羊横穿，绝不夜行</div>
+    <div class="redline"><b>D3 16:00</b> 前离达里湖 — 高速2h到元宝山，保证天黑前落地</div>
+    <div class="redline"><b>D7 12:00</b> 前过承德绕城 — 避开本地出城车流</div>
+    <div class="redline"><b>D7 15:00</b> 前抵京 — 10.1返京反向不堵，只避晚高峰</div>
+  </div>
+</section>
+
+<!-- ================= DAY BY DAY ================= -->
+<section id="day-1">
+  <div class="sec-head"><span class="sec-num">四</span><h2>逐日行程<span class="en">Day by Day</span></h2></div>
+
+  <!-- D1 -->
+  <article class="day" id="d1">
+    <div class="day-head"><span class="day-badge">D1</span><span class="day-title">🚙 北京 → 巴林右旗 ｜ 全程最长驾驶日</span><span class="day-date">9.25 周五 · 中秋</span></div>
+    <div class="day-body">
+      <div class="day-main">
+        <ul class="timeline">
+          <li class="hard"><span class="tm">05:30前</span><span class="ev"><span class="poI">出发</span>（硬性时间：京承6:00后车流快速堆积；不绕G111，几何不通，早起唯一解）<span class="sub">中秋假期高速不免费（免费假期只有春节/清明/五一/国庆），当天正常缴费</span></span></li>
+          <li><span class="tm">09:30</span><span class="ev">茅荆坝/承德方向服务区休息15分钟</span></li>
+          <li><span class="tm">12:00</span><span class="ev"><span class="poI">乌丹镇午餐</span>：对夹+荞麦饸饹（现搜评分最高；<b>不点涮肉</b>，下午不犯困）</span></li>
+          <li><span class="tm">14:00</span><span class="ev"><span class="poI">玉龙沙湖不进景区</span>（门票80元/人）：导航「布日敦嘎查/合作社」，免费进沙漠边缘，孩子玩沙、大人拍沙丘机位<span class="sub">自费项目仅滑沙30元、骑骆驼80元，全不碰</span></span></li>
+          <li class="hard"><span class="tm">17:30前</span><span class="ev"><span class="poI">必须收工</span>（G306无路灯+牛羊横穿，<b>绝不夜行</b>）</span></li>
+          <li><span class="tm">18:30</span><span class="ev">抵巴林右旗大板镇，入住</span></li>
+        </ul>
+        <div class="note"><b>💡 备注：</b>中秋假期高速<b>不免费</b>（免费假期只有春节/清明/五一/国庆），当天正常缴费；下午孩子正好在车里补觉。</div>
       </div>
-      <div class="flow-item">
-        <div class="dnum">D2 · 9.26 六</div>
-        <div class="droute">巴林右旗→辽庆州白塔→索博日嘎→石林南门</div>
-        <div class="dmeta"><span class="km">~250km</span><span>石林南门</span><span>白塔+金杨</span></div>
-      </div>
-      <div class="flow-item peak">
-        <div class="dnum">D3 · 9.27 日 ⭐</div>
-        <div class="droute">黄岗梁→铁砂线→白音敖包→达达线+达里湖南北岸→贡格尔上G16→G1611→乌兰布统</div>
-        <div class="dmeta"><span class="km">~360km</span><span>元宝山村</span><span>秋色峰值</span></div>
-      </div>
-      <div class="flow-item">
-        <div class="dnum">D4 · 9.28 一</div>
-        <div class="droute">夹皮沟→北沟→东沟→透风沟日落</div>
-        <div class="dmeta"><span class="km">~120km</span><span>元宝山村</span><span>免费段深度</span></div>
-      </div>
-      <div class="flow-item">
-        <div class="dnum">D5 · 9.29 二</div>
-        <div class="droute">蛤蟆坝主干道→小河头/花咕噜台→天太永补位</div>
-        <div class="dmeta"><span class="km">~100km</span><span>元宝山村</span><span>慢游日</span></div>
-      </div>
-      <div class="flow-item">
-        <div class="dnum">D6 · 9.30 三</div>
-        <div class="droute">乌兰布统南下→塞罕坝（泰丰湖/月亮湖/点将台）</div>
-        <div class="dmeta"><span class="km">~140km</span><span>机械林场镇</span><span>林海章节</span></div>
-      </div>
-      <div class="flow-item">
-        <div class="dnum">D7 · 10.1 四</div>
-        <div class="droute">御道口→S256→围场→S50承围高速→武烈河打卡→北京</div>
-        <div class="dmeta"><span class="km">~500km</span><span>到家</span><span>顺路收尾</span></div>
+      <div class="day-aside">
+        <div class="aside-block"><div class="k">驾驶段 · ~650KM</div><div class="v">北京 → G45大广高速 → 赤峰 → 乌丹 → 玉龙沙湖外围 → G16丹锡高速 → 巴林右旗大板镇<br>纯驾驶约7h，含休息8h+</div></div>
+        <div class="aside-block"><div class="k">⛽ 加油</div><div class="v">晚餐前<b>中石油大板东加油站加满</b>（G306沿线、大板镇东南6km，后250km最可靠一箱油）</div></div>
+        <div class="aside-block"><div class="k">🛏 住宿 · 大板镇</div><div class="v">连锁酒店（金鹭/汉庭级即可，<b>无国庆溢价</b>）约200元/晚</div></div>
       </div>
     </div>
-    <div class="redlines">
-      <div class="redline"><b>D1 05:30</b> 前出京 — 京承6:00后堵</div>
-      <div class="redline"><b>D1 17:30</b> 前收工 — G306无路灯+牛羊</div>
-      <div class="redline"><b>D3 16:00</b> 前离达里湖 — 高速2h到元宝山</div>
-      <div class="redline"><b>D7 12:00</b> 前过承德绕城</div>
-      <div class="redline"><b>D7 15:00</b> 前抵京 — 避晚高峰</div>
-    </div>
-  </section>
+  </article>
 
-  <!-- ===== DAY CARDS ===== -->
-  <section>
-    <h2><span class="num">二</span>每日执行卡片</h2>
-
-    <!-- D1 -->
-    <div class="day-card" id="d1">
-      <div class="day-head" onclick="this.parentElement.classList.toggle('collapsed')">
-        <span class="badge">D1</span>
-        <span class="title">🚙 9.25 五 ｜ 北京 → 巴林右旗</span>
-        <span class="meta"><span class="km">~650km</span> · 全程最长驾驶日 · 大板镇过夜</span>
+  <!-- D2 -->
+  <article class="day" id="d2">
+    <div class="day-head"><span class="day-badge">D2</span><span class="day-title">🏔️ 白塔 → 石林南门 ｜ 白塔+金杨</span><span class="day-date">9.26 周六</span></div>
+    <div class="day-body">
+      <div class="day-main">
+        <ul class="timeline">
+          <li><span class="tm">07:30</span><span class="ev">出发，途经巴彦琥硕镇、胜利村金杨路</span></li>
+          <li><span class="tm">09:30前</span><span class="ev"><span class="poI">辽庆州白塔</span>（免费，8:00–17:00，高73.27m）<span class="sub">争取顺光；塔北侧围墙外小土坡可拍「白塔+金杨」同框</span></span></li>
+          <li><span class="tm">11:30</span><span class="ev"><span class="poI">索博日嘎镇午餐</span>（炒笨鸡蛋、肉炒山蘑）</span></li>
+          <li class="gas"><span class="tm">⛽</span><span class="ev">索博日嘎镇<b>中石油白塔子加油站</b>，半箱即加</span></li>
+          <li><span class="tm">13:00</span><span class="ev">出发去石林南门，沿途金杨成片，路边随时停车进林</span></li>
+          <li><span class="tm">17:00</span><span class="ev">抵石林南门民宿</span></li>
+        </ul>
+        <div class="note gold"><b>⚠️ 行前核实：</b>索博日嘎→石林南门为县乡道路（约110–150km，部分路段可能非柏油），出发前用高德核一遍路况与耗时；若导航显示不可行，回退走G303经棚→热阿线北上。</div>
       </div>
-      <div class="day-body">
-        <table class="tl">
-          <tr><td class="t hard">05:30前</td><td><b>出发</b>（硬性：京承6:00后车流堆积；不绕G111，几何不通，早起唯一解）</td></tr>
-          <tr><td class="t">09:30</td><td>茅荆坝/承德方向服务区休息15分钟</td></tr>
-          <tr><td class="t">12:00</td><td>乌丹镇午餐：对夹+荞麦饸饹（不点涮肉，下午不犯困）</td></tr>
-          <tr><td class="t">14:00</td><td><b>玉龙沙湖不进景区</b>（门票80元/人）：导航「布日敦嘎查/合作社」，免费玩沙拍沙丘；滑沙30/骆驼80全不碰</td></tr>
-          <tr><td class="t hard">17:30前</td><td><b>必须收工</b>（G306无路灯+牛羊横穿，绝不夜行）</td></tr>
-          <tr><td class="t">18:30</td><td>抵巴林右旗大板镇，入住</td></tr>
-        </table>
-        <div class="day-notes">
-          <span class="note gas">⛽ 晚餐前中石油大板东站加满（后250km最可靠一箱油）</span>
-          <span class="note hotel">🏨 大板镇连锁酒店（金鹭/汉庭级，无国庆溢价）</span>
-          <span class="note tip">💡 中秋高速不免费；下午孩子车里补觉</span>
-        </div>
+      <div class="day-aside">
+        <div class="aside-block"><div class="k">驾驶段 · ~250KM</div><div class="v">巴林右旗 → 巴彦琥硕镇 → 辽庆州白塔 → 索博日嘎镇 → 石林南门<br>纯驾驶约4-5h，含游览6h</div></div>
+        <div class="aside-block"><div class="k">⛽ 加油</div><div class="v">索博日嘎镇中石油白塔子加油站，半箱即加</div></div>
+        <div class="aside-block"><div class="k">🛏 住宿 · 石林南门</div><div class="v">周边林场民宿（条件一般但位置最优，<b>务必提前2周订</b>）约250元/晚</div></div>
       </div>
     </div>
+    <figure class="day-photo"><img src="../t-wulanbutong/assets/birch_lake_2240x1680.jpg" alt="白塔与金杨"><figcaption>辽庆州白塔：免费开放，北侧围墙外小土坡可拍「白塔+金杨」同框</figcaption></figure>
+  </article>
 
-    <!-- D2 -->
-    <div class="day-card" id="d2">
-      <div class="day-head" onclick="this.parentElement.classList.toggle('collapsed')">
-        <span class="badge">D2</span>
-        <span class="title">🏔️ 9.26 六 ｜ 白塔 → 石林南门</span>
-        <span class="meta"><span class="km">~250km</span> · 石林南门过夜</span>
-      </div>
-      <div class="day-body">
-        <table class="tl">
-          <tr><td class="t">07:30</td><td>出发，途经巴彦琥硕镇、胜利村金杨路</td></tr>
-          <tr><td class="t">09:30前</td><td><b>辽庆州白塔</b>（免费，8:00–17:00，高73.27m）：北侧围墙外小土坡拍「白塔+金杨」同框</td></tr>
-          <tr><td class="t">11:30</td><td>索博日嘎镇午餐（炒笨鸡蛋、肉炒山蘑）</td></tr>
-          <tr><td class="t gas">⛽</td><td>索博日嘎镇中石油白塔子加油站，半箱即加</td></tr>
-          <tr><td class="t">13:00</td><td>出发去石林南门，沿途金杨成片，路边随时停车进林</td></tr>
-          <tr><td class="t">17:00</td><td>抵石林南门民宿</td></tr>
-        </table>
-        <div class="day-notes">
-          <span class="note warn">⚠️ 索博日嘎→石林南门为县乡道（110-150km，部分非柏油），高德实测；不通则回退G303经棚→热阿线</span>
-          <span class="note hotel">🏨 石林南门林场民宿（条件一般位置最优，提前2周订）</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- D3 -->
-    <div class="day-card peak" id="d3">
-      <div class="day-head" onclick="this.parentElement.classList.toggle('collapsed')">
-        <span class="badge">D3</span>
-        <span class="title">🍂 9.27 日 ｜ 黄岗梁 → 达达线 → 达里湖 → 高速直达 → 乌兰布统 ⭐秋色峰值</span>
-        <span class="meta"><span class="km">~360km</span> · 元宝山村过夜</span>
-      </div>
-      <div class="day-body">
-        <table class="tl">
-          <tr><td class="t">08:00</td><td>石林南门出发，上<b>热阿线</b>南下（~80km，免费柏油）</td></tr>
-          <tr><td class="t">08:30</td><td><b>黄岗梁观景台</b>（热阿线精华段，拍40min）</td></tr>
-          <tr><td class="t">09:10</td><td><b>铁砂线西行</b>（黄岗梁→白音敖包，~30km <span class="warn">三级砂石路</span>）：白桦+落叶松，停2-3次；雨后泥泞改达达线主路</td></tr>
-          <tr><td class="t gas">11:00</td><td><b>白音敖包林场</b>：食堂简餐 + ⛔<b>中石油加满</b>——达达线沿线几乎无站，全程最关键加油（8:00-18:00）</td></tr>
-          <tr><td class="t">12:30</td><td>上<b>达达线南下</b>（135km全程柏油，「移动的草原百科全书」），随停随拍</td></tr>
-          <tr><td class="t">14:00</td><td><b>达里湖南岸</b>免费机位（湖面+金色草原同框）</td></tr>
-          <tr><td class="t">14:40</td><td><b>北岸环湖公路</b>（~30km免费，候鸟迁徙季）——仅当14:00前到南岸才去</td></tr>
-          <tr><td class="t hard">16:00</td><td><b>离开达里湖</b>（硬红线）：达来诺日<b>贡格尔收费站上G16</b>→经棚西枢纽转<b>G1611</b>（~126km/1.5h）</td></tr>
-          <tr><td class="t">18:00</td><td><b>乌兰布统收费站</b>出→抵<b>元宝山村</b>（日落~18:10）</td></tr>
-        </table>
+  <!-- D3 -->
+  <article class="day peak" id="d3">
+    <div class="day-head"><span class="day-badge">D3</span><span class="day-title">🍂 黄岗梁→达达线→达里湖→高速直达→乌兰布统 ⭐秋色峰值</span><span class="day-date">9.27 周日 · 峰值日</span></div>
+    <div class="day-body">
+      <div class="day-main">
+        <ul class="timeline">
+          <li><span class="tm">08:00</span><span class="ev">石林南门出发，上<b>热阿线</b>南下（热水塘↔石林南门，~80km，全程免费柏油）</span></li>
+          <li><span class="tm">08:30</span><span class="ev"><span class="poI">黄岗梁观景台</span>（热阿线精华段，拍40min）</span></li>
+          <li><span class="tm">09:10</span><span class="ev"><span class="poI">铁砂线西行</span>（黄岗梁→白音敖包，~30km <b style="color:var(--gold)">三级砂石路</b>）<span class="sub">白桦+落叶松成片，停2–3次；雨后泥泞则改走达达线主路</span></span></li>
+          <li class="gas"><span class="tm">11:00</span><span class="ev"><span class="poI">白音敖包林场</span>：食堂简餐 + <b>⛔中石油加满</b>——达达线沿线几乎无站，全程最关键加油动作（8:00-18:00）</span></li>
+          <li><span class="tm">12:30</span><span class="ev">上<b>达达线南下</b>（达里湖↔石林，135km全程柏油，「移动的草原百科全书」），随停随拍</span></li>
+          <li><span class="tm">14:00</span><span class="ev"><span class="poI">达里湖南岸</span>免费机位（湖面+金色草原同框）</span></li>
+          <li><span class="tm">14:40</span><span class="ev"><span class="poI">北岸环湖公路</span>（~30km，免费，9月下旬候鸟迁徙季，人少景野）<span class="sub">仅当14:00前已到南岸才去，否则放弃</span></span></li>
+          <li class="hard"><span class="tm">16:00</span><span class="ev"><span class="poI">离开达里湖</span>（硬红线）：达来诺日<b>贡格尔收费站上G16</b>→经棚西枢纽转<b>G1611经乌高速</b>（~126km/1.5h）</span></li>
+          <li><span class="tm">18:00</span><span class="ev"><span class="poI">乌兰布统收费站</span>出→抵<b>元宝山村</b>（日落~18:10，天黑前从容落地）</span></li>
+        </ul>
 
         <div class="d3-tree">
-          <div style="font-size:12px;color:var(--amber);margin-bottom:4px;font-weight:600;">🔀 D3下午三线决策树（南岸15:30前拍板，默认①）</div>
-          <div class="opt opt1">
+          <div class="d3-head">🔀 D3下午三线决策树（达里湖南岸15:30前拍板，默认执行①）</div>
+          <div class="d3-opt opt1">
             <span class="lbl">① 高速直达</span>
-            <span class="desc">达里湖→贡格尔上G16→经棚西转G1611→乌兰布统站出 126km/1.5h</span>
-            <span class="judge">默认执行 · 全程高速零悬念 · 经乌高速本身即旅游公路</span>
+            <div><div class="desc">达里湖→贡格尔收费站上G16→经棚西枢纽转G1611→乌兰布统站出，约126km/1.5h</div><div class="judge">✅ 默认执行 · 全程高速零悬念 · 经乌高速本身即旅游公路（西拉沐沦河谷+桦木沟林场走廊）</div></div>
           </div>
-          <div class="opt opt2">
+          <div class="d3-opt opt2">
             <span class="lbl">② S220延长线</span>
-            <span class="desc">罕达罕→伊和诺日→浩来呼热→元宝山 126km原生沙地草原</span>
-            <span class="judge">仅官方官宣通车才走 · 面层10月摊完 · 通车则9.27最佳窗口</span>
+            <div><div class="desc">罕达罕起点→伊和诺日→浩来呼热→元宝山，126km原生沙地草原</div><div class="judge">⚠️ 仅官方官宣通车才走 · 面层计划10月才摊完、官方通车目标年底，中秋通车概率低；若已通车，9.27在十一大车流前反而是最佳窗口</div></div>
           </div>
-          <div class="opt opt3">
+          <div class="d3-opt opt3">
             <span class="lbl">③ 桦木沟线</span>
-            <span class="desc">达里湖→浩来呼热→桦木沟林场→天太永→乌兰布统</span>
-            <span class="judge">❌ 放弃 · 天太永桥8.23冲垮+G233封闭施工+桦木沟40元/人 · 白桦D4/D5同款</span>
+            <div><div class="desc">达里湖→浩来呼热→桦木沟林场→天太永→乌兰布统</div><div class="judge">❌ 放弃 · 天太永村前小桥2026.8.23被冲垮待修 + G233经棚—桦木沟段封闭施工至年底 + 桦木沟与乌兰布统分开售票约40元/人 · 白桦秋色D4/D5乌兰布统本地就有</div></div>
           </div>
         </div>
 
-        <div class="day-notes">
-          <span class="note warn">🎯 机动：行前3天刷克旗融媒/交警抖音通车公告→D3白音敖包问本地情报→无官方官宣坚决不走</span>
-          <span class="note warn">⚠️ 沿线4G覆盖~67%，离线地图必备</span>
-          <span class="note hotel">🏨 元宝山村·宝缘山庄 ☎15847608437 / 小红山村·雨林间酒店 — 必须9.10前订死</span>
-          <span class="note cold">🥶 今晚坝上可能<10℃，厚外套备好</span>
-        </div>
+        <div class="note gold"><b>🎯 机动机制：</b>① 行前3天刷克旗政府网/克旗融媒/交警抖音「S220通车」公告；② D3 11:00白音敖包加油站问本地活情报；③ 若只是「本地人说能走」而无官方官宣——<b>坚决不走</b>（未验收新路可能有施工断点，无救援无信号，带娃不赌）。</div>
+        <div class="note"><b>⚠️ 出发前必查：</b>S220通车公告（克什克腾交警抖音+旗政府网）；白音敖包站营业时间；沿线4G覆盖约67%，<b>离线地图必备</b>。</div>
+      </div>
+      <div class="day-aside">
+        <div class="aside-block"><div class="k">驾驶段 · ~360KM</div><div class="v">石林南门 → 热阿线 → 黄岗梁 → 铁砂线 → 白音敖包 → 达达线 → 达里湖南北岸 → 贡格尔收费站上G16 → G1611 → 乌兰布统 → 元宝山村</div></div>
+        <div class="aside-block"><div class="k">⛽ 关键加油</div><div class="v"><b>白音敖包林场中石油加满</b>——达达线沿线几乎无站，全程最关键加油动作（8:00-18:00）</div></div>
+        <div class="aside-block"><div class="k">🛏 住宿 · 元宝山村 ①/③</div><div class="v">元宝山村·宝缘山庄：33间房、带充电桩，☎15847608437；小红山村·雨林间酒店：停车充足。<b>必须9.10前订死</b>（旺季最抢手），约400元/晚×3</div></div>
+        <div class="aside-block"><div class="k">🥶 温度</div><div class="v">今晚坝上可能已低于10℃，厚外套备好</div></div>
       </div>
     </div>
+    <figure class="day-photo"><img src="../t-wulanbutong/assets/forest_road_2240x1680.jpg" alt="达达线秋色公路"><figcaption>达达线：135km全程柏油，「移动的草原百科全书」——9月下旬秋色峰值</figcaption></figure>
+  </article>
 
-    <!-- D4 -->
-    <div class="day-card" id="d4">
-      <div class="day-head" onclick="this.parentElement.classList.toggle('collapsed')">
-        <span class="badge">D4</span>
-        <span class="title">🌅 9.28 一 ｜ 夹皮沟 → 北沟 → 东沟 → 透风沟日落</span>
-        <span class="meta"><span class="km">~120km</span> · 元宝山村过夜 · 自然醒</span>
+  <!-- D4 -->
+  <article class="day" id="d4">
+    <div class="day-head"><span class="day-badge">D4</span><span class="day-title">🌅 夹皮沟→北沟→东沟→透风沟日落 ｜ 免费段深度</span><span class="day-date">9.28 周一 · 自然醒</span></div>
+    <div class="day-body">
+      <div class="day-main">
+        <ul class="timeline">
+          <li><span class="tm">8:30</span><span class="ev">自然醒，民宿慢早餐</span></li>
+          <li><span class="tm">10:00</span><span class="ev">出发走<b>304省道</b>（✅2022年起全线免费穿行，无收费卡口），随停随拍</span></li>
+          <li><span class="tm">10:30</span><span class="ev"><span class="poI">夹皮沟</span>：白桦密林，机位密集，孩子下车跑</span></li>
+          <li><span class="tm">12:00</span><span class="ev"><span class="poI">红山军马场镇午餐</span>（铁锅炖，这天吃好点）<span class="sub">上洗手间、补水和零食——下午无补给</span></span></li>
+          <li><span class="tm">13:30</span><span class="ev"><span class="poI">北沟</span>：山脊光影，步行20分钟，老人孩子都行</span></li>
+          <li><span class="tm">15:00</span><span class="ev"><span class="poI">东沟</span>土路穿越（SUV主场；<b>雨后两天不进</b>）</span></li>
+          <li><span class="tm">17:00</span><span class="ev"><span class="poI">透风沟</span>：河谷+牛羊+村落，<b>今日日落点</b></span></li>
+          <li><span class="tm">18:30</span><span class="ev">天黑前收工回村</span></li>
+        </ul>
+        <div class="note green"><b>✅ 已核实：</b>以上机位均为路边免费点，不在120元通票核心区（将军泡子/公主湖/影视基地/百草敖包/盘龙峡谷）内。</div>
+        <div class="note"><b>❌ 已明确放弃</b>（且无回头必要）：将军泡子晨雾/骑马、五彩山、公主湖内部、影视基地、驯鹿部落。</div>
       </div>
-      <div class="day-body">
-        <table class="tl">
-          <tr><td class="t">8:30</td><td>自然醒，民宿慢早餐</td></tr>
-          <tr><td class="t">10:00</td><td>出发走<b>304省道</b>（✅2022年起全线免费穿行），随停随拍</td></tr>
-          <tr><td class="t">10:30</td><td><b>夹皮沟</b>：白桦密林，机位密集，孩子下车跑</td></tr>
-          <tr><td class="t">12:00</td><td>红山军马场镇午餐（铁锅炖；上洗手间、补水和零食——下午无补给）</td></tr>
-          <tr><td class="t">13:30</td><td><b>北沟</b>：山脊光影，步行20min</td></tr>
-          <tr><td class="t">15:00</td><td><b>东沟</b>土路穿越（SUV主场；雨后两天不进）</td></tr>
-          <tr><td class="t">17:00</td><td><b>透风沟</b>：河谷+牛羊+村落，今日日落点</td></tr>
-          <tr><td class="t">18:30</td><td>天黑前收工回村</td></tr>
-        </table>
-        <div class="day-notes">
-          <span class="note tip">✅ 全部路边免费点，不在120元通票核心区内</span>
-          <span class="note" style="color:var(--red);border:1px solid rgba(196,90,58,.2);">❌ 已放弃：将军泡子晨雾/骑马、五彩山、公主湖内部、影视基地、驯鹿部落</span>
-        </div>
+      <div class="day-aside">
+        <div class="aside-block"><div class="k">驾驶段 · ~120KM</div><div class="v">元宝山村 → 304省道 → 夹皮沟 → 红山军马场镇 → 北沟 → 东沟 → 透风沟 → 回村<br>全天景区环线，纯驾驶约3h</div></div>
+        <div class="aside-block"><div class="k">🎫 门票</div><div class="v"><b>0元</b> · 全部路边免费点</div></div>
+        <div class="aside-block"><div class="k">🛏 住宿 · 元宝山村 ②/③</div><div class="v">同D3，不换房</div></div>
       </div>
     </div>
+  </article>
 
-    <!-- D5 -->
-    <div class="day-card" id="d5">
-      <div class="day-head" onclick="this.parentElement.classList.toggle('collapsed')">
-        <span class="badge">D5</span>
-        <span class="title">🦌 9.29 二 ｜ 蛤蟆坝主干道 + 花咕噜台 + 补位日</span>
-        <span class="meta"><span class="km">~100km</span> · 元宝山村过夜 · 慢游日</span>
+  <!-- D5 -->
+  <article class="day" id="d5">
+    <div class="day-head"><span class="day-badge">D5</span><span class="day-title">🦌 蛤蟆坝主干道+花咕噜台+补位日 ｜ 慢游日</span><span class="day-date">9.29 周二 · 自然醒</span></div>
+    <div class="day-body">
+      <div class="day-main">
+        <ul class="timeline">
+          <li><span class="tm">自然醒</span><span class="ev">睡饱，慢早餐</span></li>
+          <li><span class="tm">10:00</span><span class="ev"><span class="poI">蛤蟆坝方向主干道</span>（✅免费段，田园秋色随停随拍）<span class="sub"><b>不进30元核心区</b>，主干道已覆盖80%秋色，要进也现场买</span></span></li>
+          <li><span class="tm">11:30</span><span class="ev"><span class="poI">小河头/花咕噜台</span>：人少景野，土路SUV才能进</span></li>
+          <li><span class="tm">13:00</span><span class="ev"><span class="poI">车内冷餐</span>：保温箱熟食+无明火自热米饭<span class="sub">禁火期9.15–11.15禁一切明火，违者罚200–3000元</span></span></li>
+          <li><span class="tm">14:30</span><span class="ev"><span class="poI">补位时段</span>（二选一）：<br>• 首选<b>天太永村</b>（⚠️村前小桥2026.8.23被冲垮，<b>行前确认已修复才去</b>）<br>• 备选<b>盘龙峡谷</b>（约20元/人，SUV专属；⚠️谷底道路曾塌陷限徒步——未修复则直接二刷透风沟）</span></li>
+          <li><span class="tm">17:00</span><span class="ev">304省道扫尾，随停随拍</span></li>
+          <li><span class="tm">晚</span><span class="ev">收拾行李早睡，为D6转场养精神</span></li>
+        </ul>
+        <div class="note gold"><b>⚠️ 禁火期提醒：</b>9.15–11.15禁一切明火，违者罚200–3000元。改保温箱冷餐方案。</div>
       </div>
-      <div class="day-body">
-        <table class="tl">
-          <tr><td class="t">自然醒</td><td>睡饱，慢早餐</td></tr>
-          <tr><td class="t">10:00</td><td><b>蛤蟆坝方向主干道</b>（✅免费段；不进30元核心区，主干道覆盖80%秋色）</td></tr>
-          <tr><td class="t">11:30</td><td><b>小河头/花咕噜台</b>：人少景野，土路SUV才能进</td></tr>
-          <tr><td class="t">13:00</td><td><b>车内冷餐</b>：保温箱熟食+自热米饭（禁火期9.15-11.15，违者罚200-3000元）</td></tr>
-          <tr><td class="t">14:30</td><td><b>补位二选一</b>：① 天太永村（⚠️桥8.23冲垮，行前确认修复）② 盘龙峡谷（~20元/人，SUV专属；谷底曾塌陷限徒步则二刷透风沟）</td></tr>
-          <tr><td class="t">17:00</td><td>304省道扫尾，随停随拍</td></tr>
-          <tr><td class="t">晚</td><td>收拾行李早睡，为D6转场养精神</td></tr>
-        </table>
+      <div class="day-aside">
+        <div class="aside-block"><div class="k">驾驶段 · ~100KM</div><div class="v">元宝山村 → 蛤蟆坝主干道 → 小河头/花咕噜台 → 天太永/盘龙峡谷 → 304省道 → 回村</div></div>
+        <div class="aside-block"><div class="k">🎫 门票</div><div class="v">主干道免费；蛤蟆坝核心区30元（不进）；盘龙峡谷约20元/人（备选）</div></div>
+        <div class="aside-block"><div class="k">🛏 住宿 · 元宝山村 ③/③</div><div class="v">最后一晚，明早起D6转场</div></div>
       </div>
     </div>
+  </article>
 
-    <!-- D6 -->
-    <div class="day-card" id="d6">
-      <div class="day-head" onclick="this.parentElement.classList.toggle('collapsed')">
-        <span class="badge">D6</span>
-        <span class="title">🌲 9.30 三 ｜ 乌兰布统 → 塞罕坝</span>
-        <span class="meta"><span class="km">~140km</span> · 机械林场镇过夜</span>
+  <!-- D6 -->
+  <article class="day" id="d6">
+    <div class="day-head"><span class="day-badge">D6</span><span class="day-title">🌲 乌兰布统→塞罕坝 ｜ 林海章节</span><span class="day-date">9.30 周三</span></div>
+    <div class="day-body">
+      <div class="day-main">
+        <ul class="timeline">
+          <li><span class="tm">09:00</span><span class="ev">自然醒，退房出发南下</span></li>
+          <li><span class="tm">10:00</span><span class="ev"><span class="poI">过乌兰布统南门/界河检查站</span>：✅<b>已核实无需「过路票」</b><span class="sub">2022年起乌兰布统取消省道、国道收费卡口，304省道/经乌线穿行免费；若现场政策有变，以最新公告为准</span></span></li>
+          <li class="gas"><span class="tm">11:30</span><span class="ev">抵<span class="poI">机械林场镇，先加油</span>（塞罕坝片区最后大补给点）</span></li>
+          <li><span class="tm">12:00</span><span class="ev">林场镇午餐（烤羊腿/莜面窝子）</span></li>
+          <li><span class="tm">13:30</span><span class="ev"><span class="poI">泰丰湖</span>（✅免费，金色落叶松倒影，全场最佳）→ <span class="poI">月亮湖</span>（✅免费栈道平缓）→ <span class="poI">康熙点将台</span>（✅免费，车行直达俯瞰林海）</span></li>
+          <li><span class="tm">可选</span><span class="ev"><span class="poI">七星湖湿地60元/人</span>：全塞罕坝唯一值得花钱的点，看湖倒影是否看够决定</span></li>
+          <li><span class="tm">17:30</span><span class="ev">入住机械林场镇民宿</span></li>
+        </ul>
+        <div class="note green"><b>✅ 塞罕坝门票（2026.9核实）：</b>大门票<b>免费</b>；塞罕塔20–25元、二龙泉20元、七星湖60元为内部单点，均可不去。</div>
+        <div class="note"><b>🥶 温度警报：</b>今晚塞罕坝可能接近<b>0℃</b>，厚羽绒服+帽子手套今晚用上。</div>
       </div>
-      <div class="day-body">
-        <table class="tl">
-          <tr><td class="t">09:00</td><td>自然醒，退房出发南下</td></tr>
-          <tr><td class="t">10:00</td><td><b>过乌兰布统南门/界河检查站</b>：✅已核实无需过路票（2022年起取消省道卡口）</td></tr>
-          <tr><td class="t gas">11:30</td><td>抵<b>机械林场镇，先加油</b>（塞罕坝最后大补给点）</td></tr>
-          <tr><td class="t">12:00</td><td>林场镇午餐（烤羊腿/莜面窝子）</td></tr>
-          <tr><td class="t">13:30</td><td><b>泰丰湖</b>（✅免费，金色落叶松倒影）→ <b>月亮湖</b>（✅免费栈道）→ <b>康熙点将台</b>（✅免费，车行直达俯瞰林海）</td></tr>
-          <tr><td class="t">可选</td><td><b>七星湖湿地60元/人</b>：全塞罕坝唯一值得花钱的点</td></tr>
-          <tr><td class="t">17:30</td><td>入住机械林场镇民宿</td></tr>
-        </table>
-        <div class="day-notes">
-          <span class="note tip">✅ 塞罕坝大门票免费；塞罕塔20-25元、二龙泉20元、七星湖60元均可不去</span>
-          <span class="note hotel">🏨 机械林场镇民宿（提前2周订，摄影季峰值400-600元/晚）</span>
-          <span class="note cold">🥶 今晚塞罕坝可能接近0℃，厚羽绒服+帽子手套今晚用上</span>
-        </div>
+      <div class="day-aside">
+        <div class="aside-block"><div class="k">驾驶段 · ~140KM</div><div class="v">元宝山村 → 乌兰布统南门 → 界河 → 塞罕坝 → 机械林场镇 → 泰丰湖 → 月亮湖 → 点将台 → 林场镇</div></div>
+        <div class="aside-block"><div class="k">⛽ 加油</div><div class="v">机械林场镇加满（塞罕坝片区最后大补给点）</div></div>
+        <div class="aside-block"><div class="k">🛏 住宿 · 机械林场镇</div><div class="v">提前2周订（10.1前夜是摄影季峰值，400–600元/晚）</div></div>
       </div>
     </div>
+    <figure class="day-photo"><img src="../t-wulanbutong/assets/swan_lake_2240x1680.jpg" alt="塞罕坝林海"><figcaption>塞罕坝：大门票免费，泰丰湖金色落叶松倒影是全场最佳</figcaption></figure>
+  </article>
 
-    <!-- D7 -->
-    <div class="day-card" id="d7">
-      <div class="day-head" onclick="this.parentElement.classList.toggle('collapsed')">
-        <span class="badge">D7</span>
-        <span class="title">🏁 10.1 四 ｜ 御道口 → 围场 → 承德 → 北京</span>
-        <span class="meta"><span class="km">~500km</span> · 到家 · 07:30闹钟</span>
+  <!-- D7 -->
+  <article class="day" id="d7">
+    <div class="day-head"><span class="day-badge">D7</span><span class="day-title">🏁 御道口→围场→承德→北京 ｜ 顺路收尾</span><span class="day-date">10.1 周四 · 国庆 · 07:30闹钟</span></div>
+    <div class="day-body">
+      <div class="day-main">
+        <ul class="timeline">
+          <li><span class="tm">07:30</span><span class="ev">出发，穿<b>塞罕坝林海晨光段</b>南下至<b>御道口</b>（~40km）<span class="sub">这一段就是「国家一号风景大道」的东端起点，观景台停1–2个</span></span></li>
+          <li><span class="tm">08:45</span><span class="ev">御道口转<b>S256省道南下</b>（~80km二级路，大货车多、弯道多，稳着开）<span class="sub">⚠️<b>不要继续沿风景大道走</b>，那条路向西去丰宁大滩，方向反了</span></span></li>
+          <li class="gas"><span class="tm">10:15</span><span class="ev">围场县城北：<b>⛽加油</b>→上<b>S50承围高速</b>（已通车，70km直达承德）</span></li>
+          <li><span class="tm">11:15</span><span class="ev"><span class="poI">双峰寺出口下→武烈河大桥观景台</span>：远眺棒槌山（磬锤峰）+外八庙金顶，5分钟0元打卡<span class="sub">11:45返G45大广高速</span></span></li>
+          <li class="hard"><span class="tm">12:00前</span><span class="ev"><span class="poI">过承德绕城</span>（硬性时间，避开本地出城车流）</span></li>
+          <li><span class="tm">13:00</span><span class="ev">密云服务区午餐</span></li>
+          <li class="hard"><span class="tm">15:00前</span><span class="ev"><span class="poI">抵京</span>（10.1进京反向不堵，全天不堵，避开晚高峰）</span></li>
+        </ul>
+        <div class="note green"><b>💰 彩蛋：</b>10.1为国庆高速免费时段首日（00:00起），<b>当天返京高速费0元</b>。</div>
       </div>
-      <div class="day-body">
-        <table class="tl">
-          <tr><td class="t">07:30</td><td>出发，穿<b>塞罕坝林海晨光段</b>南下至<b>御道口</b>（~40km，国家一号风景大道东端起点）</td></tr>
-          <tr><td class="t">08:45</td><td>御道口转<b>S256省道南下</b>（~80km二级路，大货车多弯道多）—⚠️不要继续沿风景大道走（向西去丰宁大滩，方向反了）</td></tr>
-          <tr><td class="t gas">10:15</td><td>围场县城北：<b>加油</b>→上<b>S50承围高速</b>（已通车，70km直达承德）</td></tr>
-          <tr><td class="t">11:15</td><td><b>双峰寺出口下→武烈河大桥观景台</b>：远眺棒槌山+外八庙金顶，5分钟0元打卡→11:45返G45</td></tr>
-          <tr><td class="t hard">12:00前</td><td><b>过承德绕城</b>（硬性：避开本地出城车流）</td></tr>
-          <tr><td class="t">13:00</td><td>密云服务区午餐</td></tr>
-          <tr><td class="t hard">15:00前</td><td><b>抵京</b>（10.1进京反向不堵，避晚高峰）</td></tr>
-        </table>
-        <div class="day-notes">
-          <span class="note tip">💰 10.1国庆高速免费首日，返京高速费0元</span>
-        </div>
+      <div class="day-aside">
+        <div class="aside-block"><div class="k">驾驶段 · ~500KM</div><div class="v">机械林场镇 → 御道口 → S256 → 围场县城 → S50承围高速 → 承德双峰寺 → 武烈河 → G45大广高速 → 京承高速 → 北京<br>纯驾驶约6.5h</div></div>
+        <div class="aside-block"><div class="k">⛽ 加油</div><div class="v">围场县城北加满 → 上承围高速</div></div>
+        <div class="aside-block"><div class="k">🛏 住宿</div><div class="v">回家，睡自己的床</div></div>
       </div>
     </div>
-  </section>
+  </article>
+</section>
 
-  <!-- ===== DECISIONS + EMERGENCY ===== -->
-  <div class="grid2">
-    <section id="decisions">
-      <h2><span class="num">三</span>决策记录</h2>
-      <div class="panel">
-        <table>
-          <tr><th>#</th><th>决策</th><th>理由</th></tr>
-          <tr><td>1</td><td>不带备用油桶</td><td>散装汽油违法（记12分）；改「半箱即加」</td></tr>
-          <tr><td>2</td><td>不带卡式炉</td><td>禁火期罚款200-3000元；改保温箱冷餐</td></tr>
-          <tr><td>3</td><td>05:30出发不绕G111</td><td>京承6点后堵；G111几何绕不通</td></tr>
-          <tr><td>4</td><td>17:30前离玉龙沙湖</td><td>G306无路灯+牲畜横穿</td></tr>
-          <tr><td>5</td><td>D3默认贡格尔上G16→G1611</td><td><span class="ok">✅</span> S220面层10月完工；全程高速1.5h零悬念</td></tr>
-          <tr><td>6</td><td>不看晨雾</td><td>起不来；黄金时段改日落（唯D1/D7闹钟）</td></tr>
-          <tr><td>7</td><td>全免费段</td><td>省~500元门票；免费点在动线上不绕路</td></tr>
-          <tr><td>8</td><td>不去驯鹿部落</td><td>体验支出归零</td></tr>
-          <tr><td>9</td><td>承德只做PlanA打卡</td><td>国庆爆满；武烈河5分钟0元替代</td></tr>
-          <tr><td>10</td><td>D6顺路加塞罕坝</td><td><span class="ok">✅</span> 免大门票；总里程反减~100km</td></tr>
-          <tr><td>11</td><td>达里湖增加北岸</td><td>候鸟季+免费+人少</td></tr>
-          <tr><td>12</td><td>经棚作加油保底</td><td>D3走高速不经棚，白音敖包加不上时绕行</td></tr>
-          <tr><td>13</td><td>穿行免票</td><td><span class="ok">✅</span> 2022年起省道卡口取消；塞罕坝大门票免费</td></tr>
-          <tr><td>14</td><td>石林只住不进</td><td>门票120+区间车40；秋色全在路上</td></tr>
-          <tr><td>15</td><td><span class="no">❌</span> 桦木沟线放弃</td><td>桥冲垮+G233封闭+单独售票40元</td></tr>
+<!-- ================= BUDGET ================= -->
+<section id="budget">
+  <div class="sec-head"><span class="sec-num">五</span><h2>预算参考<span class="en">Budget · 2大1小</span></h2></div>
+  <div class="budget-grid">
+    <div>
+      <figure class="chart-figure" style="margin-top:0">
+        <figcaption>预算构成（合计约5800元 · 一家三口）</figcaption>
+        <div id="chart-budget" style="width:100%;min-height:360px"></div>
+      </figure>
+    </div>
+    <div>
+      <div class="table-wrap" style="max-height:none">
+        <table style="min-width:0">
+          <thead><tr><th>项目</th><th>明细</th><th>金额</th></tr></thead>
+          <tbody>
+            <tr><td><b>油费</b></td><td>~2100km，SUV</td><td class="dist">~1700元</td></tr>
+            <tr><td><b>过路费</b></td><td>去程正常缴费，<b>10.1返程免费</b></td><td class="dist">~450元</td></tr>
+            <tr><td><b>住宿6晚</b></td><td>大板200+石林南门250+元宝山400×3+林场镇500</td><td class="dist">~2150元</td></tr>
+            <tr><td><b>餐饮</b></td><td>7天，日均约200</td><td class="dist">~1500元</td></tr>
+            <tr><td><b>门票/体验</b></td><td><b style="color:var(--accent2)">~0元</b>（七星湖60/人可选项除外）</td><td class="dist" style="color:var(--accent2)">~0元</td></tr>
+          </tbody>
         </table>
       </div>
-    </section>
-
-    <section id="emergency">
-      <h2><span class="num">六</span>应急速查表</h2>
-      <div class="panel">
-        <table>
-          <tr><th>突发情况</th><th>处置方案</th></tr>
-          <tr><td>导航推荐S220</td><td><span class="no">未官宣一律拒绝</span>（面层10月才完工）：贡格尔上G16转G1611</td></tr>
-          <tr><td>导航推荐G233</td><td><span class="no">❌</span> 2026.4.8-12.31全封闭施工，绕开</td></tr>
-          <tr><td>铁砂线雨后泥泞</td><td>改达达线主路（石林→白音敖包柏油）</td></tr>
-          <tr><td>天太永小桥（8.23冲垮）</td><td>未修复→盘龙峡谷（20元/人）；谷底限徒步→二刷透风沟；<b>绝不涉水</b></td></tr>
-          <tr><td>油量低于半箱</td><td>见站即加：大板东/索博日嘎/白音敖包/经棚/机械林场</td></tr>
-          <tr><td>白音敖包站维护</td><td>绕行经棚镇保底（多~40min），或高速经棚服务区补</td></tr>
-          <tr><td>东沟/花咕噜台雨后</td><td>两天内不进土路，改铺装段（304省道、夹皮沟）</td></tr>
-          <tr><td>林场无信号</td><td>离线地图+告知民宿老板</td></tr>
-          <tr><td>临时封路</td><td>克什克腾交警抖音直播+问民宿老板</td></tr>
-          <tr><td>南门被要求购票</td><td>出示过境意图走免费省道；无果多伦绕行</td></tr>
-          <tr><td>陷车</td><td>脱困板先行；不进河道/湿地/草场（碾压草场也罚款）</td></tr>
-          <tr><td>雨天过弯</td><td>热阿线/达达线弯多坡陡，<b>严防落石/暗冰</b></td></tr>
-        </table>
+      <div class="total-card">
+        <div class="row"><span class="lbl">总预算</span><span class="num">≈ ¥5,800</span></div>
+        <div class="lbl">不含购物；门票体验支出目标0元已核实可行</div>
       </div>
-    </section>
+    </div>
   </div>
+</section>
 
-  <!-- ===== TASKS + EQUIP ===== -->
-  <div class="grid2">
-    <section id="tasks">
-      <h2><span class="num">四</span>行前任务清单</h2>
-      <div class="checklist">
-        <div class="group">
-          <h4>🔥 现在（9月第一周）</h4>
-          <label><input type="checkbox"><span><b>订死元宝山村/小红山村3晚</b>（宝缘山庄☎15847608437）</span></label>
-          <label><input type="checkbox"><span>订机械林场镇1晚（D6摄影季峰值）</span></label>
-          <label><input type="checkbox"><span>订大板镇、石林南门各1晚</span></label>
-          <label><input type="checkbox"><span>车辆保养：机油、刹车、轮胎、备胎、防冻玻璃水</span></label>
-        </div>
-        <div class="group">
-          <h4>📅 9.20前</h4>
-          <label><input type="checkbox"><span>下载赤峰/锡林郭勒/乌兰布统/塞罕坝离线地图</span></label>
-          <label><input type="checkbox"><span>关注克什克腾旗交警抖音号</span></label>
-          <label><input type="checkbox"><span>高德实测：①索博日嘎→石林南门 ②达里湖→贡格尔收费站</span></label>
-          <label><input type="checkbox"><span>刷关键词：「S220通车」「天太永 桥」「盘龙峡谷 道路」</span></label>
-          <label><input type="checkbox"><span>药品补齐；全员身份证+驾驶证行驶证装包</span></label>
-        </div>
-        <div class="group">
-          <h4>🚗 出发前一晚</h4>
-          <label><input type="checkbox"><span>油箱加满；胎压冷车2.5bar（碎石路不低于2.4）</span></label>
-          <label><input type="checkbox"><span>装备按「应急最外层、零食扶手箱」上车</span></label>
-          <label><input type="checkbox"><span>确认厚羽绒服、手套、帽子已装箱（D6塞罕坝0℃）</span></label>
-        </div>
-      </div>
-    </section>
-
-    <section id="equip">
-      <h2><span class="num">五</span>装备清单</h2>
-      <div class="equip">
-        <div class="cat"><h5>证件</h5><p>全家身份证（儿童身份证/户口本）、驾驶证、行驶证</p></div>
-        <div class="cat"><h5>衣物</h5><p><b>厚羽绒服</b>（塞罕坝~0℃）、冲锋衣、抓绒、保暖裤、帽子手套围巾、徒步鞋</p></div>
-        <div class="cat"><h5>防晒</h5><p>高倍防晒霜、墨镜、遮阳帽、润唇膏</p></div>
-        <div class="cat"><h5>摄影</h5><p>广角16-35+长焦70-200、三脚架、<b>备用电池×3</b>、ND镜、望远镜（看候鸟）</p></div>
-        <div class="cat"><h5>冷餐</h5><p><b>保温箱</b>、熟食、自热米饭、保温壶、一次性餐具</p></div>
-        <div class="cat"><h5>应急</h5><p>拖车绳、<b>脱困板</b>、充气泵、铁锹、反光背心、灭火器、搭电线、便携尿袋、防滑链</p></div>
-        <div class="cat"><h5>带娃</h5><p>安全座椅、遮阳帘、平板+耳机、零食箱、风筝/飞盘</p></div>
-        <div class="cat"><h5>药品</h5><p>退烧药、蒙脱石散、创可贴、晕车药、感冒药、藿香正气</p></div>
-      </div>
-      <div class="noban">❌ 绝不带：卡式炉/气罐（禁火期违法）、任何散装油桶（违法）</div>
-    </section>
+<!-- ================= TASKS ================= -->
+<section id="tasks">
+  <div class="sec-head"><span class="sec-num">六</span><h2>行前任务清单<span class="en">Pre-trip Checklist</span></h2></div>
+  <div class="checklist-grid">
+    <div class="check-group">
+      <h4>🔥 现在（9月第一周）</h4>
+      <label><input type="checkbox"><span><b>订死元宝山村/小红山村3晚</b>（D3–D5，宝缘山庄☎15847608437，最抢手）</span></label>
+      <label><input type="checkbox"><span>订机械林场镇1晚（D6，摄影季峰值）</span></label>
+      <label><input type="checkbox"><span>订大板镇、石林南门各1晚</span></label>
+      <label><input type="checkbox"><span>车辆保养：机油、刹车、四轮胎况、备胎、防冻玻璃水</span></label>
+    </div>
+    <div class="check-group">
+      <h4>📅 9.20前</h4>
+      <label><input type="checkbox"><span>下载<b>赤峰/锡林郭勒/乌兰布统/塞罕坝</b>四地离线地图（林场无信号）</span></label>
+      <label><input type="checkbox"><span>关注<b>克什克腾旗交警抖音号</b>（实时路况直播）</span></label>
+      <label><input type="checkbox"><span>高德实测两段路：①索博日嘎→石林南门 ②达里湖南岸→贡格尔收费站上G16</span></label>
+      <label><input type="checkbox"><span>高频刷三个关键词（小红书+克旗融媒）：<b>「S220通车」「天太永 桥」「盘龙峡谷 道路」</b></span></label>
+      <label><input type="checkbox"><span>全家药品补齐；<b>全员身份证（儿童身份证/户口本）+驾驶证行驶证</b>装包</span></label>
+    </div>
+    <div class="check-group">
+      <h4>🚗 出发前一晚</h4>
+      <label><input type="checkbox"><span>油箱加满；胎压冷车2.5bar（碎石路不低于2.4）</span></label>
+      <label><input type="checkbox"><span>装备按「应急最外层、零食扶手箱」原则上车</span></label>
+      <label><input type="checkbox"><span>确认<b>厚羽绒服、手套、帽子</b>已装箱（D6塞罕坝0℃保命用）</span></label>
+    </div>
   </div>
+</section>
 
-  <!-- ===== BUDGET ===== -->
-  <section id="budget">
-    <h2><span class="num">七</span>预算参考（2大1小）</h2>
-    <div class="budget">
-      <div class="panel" style="flex:1">
-        <table>
-          <tr><th>项目</th><th>预估</th></tr>
-          <tr><td>油费（~2100km，SUV）</td><td class="hl">~1700 元</td></tr>
-          <tr><td>过路费（去程缴费，<b>10.1返程免费</b>）</td><td class="hl">~450 元</td></tr>
-          <tr><td>住宿6晚（大板200+石林南门250+元宝山400×3+林场镇500）</td><td class="hl">~2150 元</td></tr>
-          <tr><td>餐饮</td><td class="hl">~1500 元</td></tr>
-          <tr><td>门票/体验</td><td class="ok"><b>~0 元</b>（七星湖60/人可选除外）</td></tr>
-        </table>
-      </div>
-      <div class="total">
-        <div class="big">~5800</div>
-        <div class="lbl">元（不含购物）</div>
-      </div>
-    </div>
-  </section>
+<!-- ================= GEAR ================= -->
+<section id="gear">
+  <div class="sec-head"><span class="sec-num">七</span><h2>装备清单<span class="en">Gear Checklist</span></h2></div>
+  <div class="gear-grid">
+    <div class="gear-cat"><h5>证件</h5><p><b>全家身份证</b>（儿童身份证/户口本）、驾驶证、行驶证</p></div>
+    <div class="gear-cat"><h5>衣物</h5><p><b>厚羽绒服</b>（塞罕坝早晚~0℃）、冲锋衣、抓绒、保暖裤、<b>帽子手套围巾</b>、防滑徒步鞋</p></div>
+    <div class="gear-cat"><h5>防晒</h5><p>高倍防晒霜、墨镜、遮阳帽、润唇膏（草原紫外线极强）</p></div>
+    <div class="gear-cat"><h5>摄影</h5><p>广角16–35+长焦70–200、三脚架、<b>备用电池×3</b>（低温掉电快）、ND镜、<b>望远镜</b>（达里湖北岸看候鸟）</p></div>
+    <div class="gear-cat"><h5>冷餐</h5><p><b>保温箱</b>、熟食、无明火自热米饭、保温壶、一次性餐具</p></div>
+    <div class="gear-cat"><h5>应急</h5><p>拖车绳、<b>脱困板</b>、充气泵、铁锹、反光背心、灭火器、搭电线、便携尿袋、防滑链（极端天气备用）</p></div>
+    <div class="gear-cat"><h5>带娃</h5><p>安全座椅、后排遮阳帘、平板+耳机、零食箱、风筝/飞盘</p></div>
+    <div class="gear-cat"><h5>药品</h5><p>退烧药、蒙脱石散、创可贴、晕车药、感冒药、藿香正气</p></div>
+  </div>
+  <div class="noban">❌ <b>绝不带</b>：卡式炉/气罐（禁火期9.15–11.15违法，罚款200–3000元）、任何散装油桶（违法，记12分）</div>
+</section>
 
-  <!-- ===== SUMMARY ===== -->
-  <section id="summary">
-    <h2><span class="num">八</span>终版总纲</h2>
-    <div class="summary">
-      <p><b>05:30出发避京承 ｜ 大板加满、白音敖包加满、林场镇再加 ｜ 达达线+达里湖南北岸、贡格尔上G16转G1611直插乌兰布统 ｜ 乌兰布统全免费段、透风沟看日落 ｜ 塞罕坝免大门票林海一日 ｜ 御道口—围场—承围高速、武烈河0元收官 ｜ 除D1/D7两个转场闹钟，谁也不许定闹钟，谁也不用在检票口排队，谁也不许冻着。</b></p>
-      <p>剩下的变量只有两个——前者出发前3天刷克什克腾交警抖音和旗政府网，后者到了白音敖包看天定D3下午节奏。</p>
-      <div class="vars">
-        <div class="var"><b>变量①</b> S220能否赶在9月底通车（大概率不能，通了算惊喜）</div>
-        <div class="var"><b>变量②</b> 出发那天的天气</div>
-      </div>
-      <p style="margin-top:8px;color:var(--dim);font-style:italic;">订房、保养、装车，然后就可以安静地等9.25的凌晨五点半了。秋天不会辜负在路上的人。🍂</p>
-    </div>
-  </section>
-
-  <!-- ===== APPENDIX ===== -->
-  <section id="appendix" class="appendix">
-    <h2><span class="num">附</span>信息核实附录（2026.9.5 检索）</h2>
+<!-- ================= EMERGENCY + DECISIONS ================= -->
+<div class="two-col">
+  <section id="emergency">
+    <div class="sec-head"><span class="sec-num">八</span><h2>应急速查<span class="en">Emergency Quick Reference</span></h2></div>
     <div class="panel">
       <table>
-        <tr><th>事项</th><th>结论</th><th>来源</th></tr>
-        <tr><td>S220 罕达罕—乌兰布统段</td><td><span class="no">❌</span> 路基桥涵4-8月、基层8-9月、<b>面层10月摊完</b>；官方目标年底前通车，中秋小概率</td><td>克旗融媒/赤峰市交通局</td></tr>
+        <thead><tr><th>突发情况</th><th>处置方案</th></tr></thead>
+        <tbody>
+          <tr><td>导航推荐S220（罕达罕—乌兰布统）</td><td><span class="no">未官宣一律拒绝</span>（面层10月才完工）：默认贡格尔收费站上G16转G1611</td></tr>
+          <tr><td>导航推荐G233经棚—桦木沟段</td><td><span class="no">❌</span> 2026.4.8–12.31全封闭施工，让导航绕开该走廊</td></tr>
+          <tr><td>铁砂线雨后泥泞</td><td>改走达达线主路（石林→白音敖包段柏油），白桦林少一段但安全</td></tr>
+          <tr><td>天太永小桥（8.23冲垮）</td><td>行前查修复；未修复改盘龙峡谷（~20元/人）；谷底仍限徒步直接二刷透风沟；<b>绝不涉水</b>（河底流沙易陷车）</td></tr>
+          <tr><td>油量低于半箱</td><td>见站即加：大板东/索博日嘎/白音敖包/经棚/机械林场均为可靠补给点</td></tr>
+          <tr><td>白音敖包站繁忙/维护</td><td>绕行经棚镇保底（油品更稳，多~40分钟），或上高速后在经棚服务区补</td></tr>
+          <tr><td>东沟/花咕噜台雨后</td><td>两天内不进土路，改铺装段（304省道、夹皮沟）</td></tr>
+          <tr><td>林场无信号</td><td>离线地图+行程告知民宿老板（活的实时路况）</td></tr>
+          <tr><td>临时封路</td><td>克什克腾交警抖音直播+现场问民宿老板</td></tr>
+          <tr><td>南门被要求购票</td><td>出示过境意图，要求走免费省道；无果则多伦绕行（近年未见此情况）</td></tr>
+          <tr><td>陷车</td><td>脱困板先行；不进河道、湿地、草场（碾压草场也罚款）</td></tr>
+          <tr><td>雨天过弯</td><td>热阿线/达达线弯多坡陡，<b>严防落石/暗冰</b>，减速慢行</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="decisions">
+    <div class="sec-head"><span class="sec-num">九</span><h2>决策记录<span class="en">Key Decisions</span></h2></div>
+    <div class="panel">
+      <table>
+        <thead><tr><th style="width:30px">#</th><th>决策</th><th>理由</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td>不带备用油桶</td><td>私家车装散装汽油违法（记12分）；改「半箱即加」策略</td></tr>
+          <tr><td>2</td><td>不带卡式炉</td><td>禁火期9.15–11.15，罚款200–3000元；改保温箱冷餐</td></tr>
+          <tr><td>3</td><td>05:30出发、不绕G111</td><td>京承6点后堵；G111几何绕不通，早起是唯一解</td></tr>
+          <tr><td>4</td><td>17:30前离玉龙沙湖</td><td>G306无路灯+牲畜横穿</td></tr>
+          <tr><td>5</td><td>D3默认贡格尔上G16→G1611</td><td><span class="ok">✅</span> S220面层10月才完工；全程高速1.5h零悬念；白音敖包加满后中途无需补给</td></tr>
+          <tr><td>6</td><td>不看晨雾</td><td>起不来；黄金时段改日落，D4自然醒（唯D1/D7闹钟）</td></tr>
+          <tr><td>7</td><td>全免费段</td><td>省约500元门票；免费点恰好在动线上，几乎不绕路</td></tr>
+          <tr><td>8</td><td>不去驯鹿部落</td><td>用户删除；体验类支出归零</td></tr>
+          <tr><td>9</td><td>承德只做Plan A打卡</td><td>人文调性与本趟不符+国庆爆满；武烈河5分钟0元替代</td></tr>
+          <tr><td>10</td><td>D6顺路加塞罕坝</td><td><span class="ok">✅</span> 免大门票+免费风景大道；总里程反减~100km，去回头路</td></tr>
+          <tr><td>11</td><td>达里湖增加北岸</td><td>候鸟季+免费+人少，D3丰富度大幅提升</td></tr>
+          <tr><td>12</td><td>经棚镇作加油保底</td><td>油品更有保障；D3现走高速不经棚，仅白音敖包加不上时绕行救急</td></tr>
+          <tr><td>13</td><td>乌兰布统/塞罕坝穿行免票</td><td><span class="ok">✅</span> 2022年起省道卡口取消、304省道免费穿行；塞罕坝大门票免费</td></tr>
+          <tr><td>14</td><td>阿斯哈图石林只住不进</td><td>门票120+区间车40元/人；秋色全在热阿线/达达线沿路</td></tr>
+          <tr><td>15</td><td><span class="no">❌</span> 桦木沟线放弃</td><td>天太永桥8.23冲垮+G233封闭施工+桦木沟单独售票约40元</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+</div>
+
+<!-- ================= SUMMARY ================= -->
+<section id="summary">
+  <div class="sec-head"><span class="sec-num">十</span><h2>终版总纲<span class="en">Final Summary</span></h2></div>
+  <div class="summary-box">
+    <p><b>05:30出发避京承 ｜ 大板加满、白音敖包加满、林场镇再加 ｜ 达达线+达里湖南北岸、贡格尔上G16转G1611直插乌兰布统 ｜ 乌兰布统全免费段、透风沟看日落 ｜ 塞罕坝免大门票林海一日 ｜ 御道口—围场—承围高速、武烈河0元收官 ｜ 除D1/D7两个转场闹钟，谁也不许定闹钟，谁也不用在检票口排队，谁也不许冻着。</b></p>
+    <p>剩下的变量只有两个——前者出发前3天刷克什克腾交警抖音和旗政府网，后者到了白音敖包看天定D3下午节奏。</p>
+    <div class="vars">
+      <div class="var"><b>变量①</b> S220能否赶在9月底通车（大概率不能，不影响主线，通了算惊喜）</div>
+      <div class="var"><b>变量②</b> 出发那天的天气</div>
+    </div>
+    <p class="closing">订房、保养、装车，然后就可以安静地等9.25的凌晨五点半了。秋天不会辜负在路上的人。🍂</p>
+  </div>
+</section>
+
+<!-- ================= APPENDIX ================= -->
+<section id="appendix">
+  <div class="sec-head"><span class="sec-num">附</span><h2>信息核实附录<span class="en">Verification Appendix · 2026.9.5</span></h2></div>
+  <div class="panel">
+    <table>
+      <thead><tr><th>事项</th><th>结论</th><th>来源</th></tr></thead>
+      <tbody>
+        <tr><td>S220 罕达罕—乌兰布统段</td><td><span class="no">❌</span> 路基桥涵4–8月、基层8–9月、<b>面层10月摊完</b>；官方目标年底前通车，中秋小概率</td><td>克旗融媒/赤峰市交通局</td></tr>
         <tr><td>经乌高速G1611</td><td><span class="ok">✅</span> 2024.6.14通车，96km双向四车道，4收费站（西拉沐沦/桦木沟/乌兰布统/蔡木山）</td><td>赤峰市交通运输局/澎湃</td></tr>
-        <tr><td>G16丹锡高速贡格尔站</td><td><span class="ok">✅</span> 达里湖南下即上站→经棚西枢纽转G1611，全程高速~1.5h</td><td>内蒙古交通厅</td></tr>
-        <tr><td>天太永村前小桥</td><td><span class="warn">⚠️</span> 2026.8.23被河水冲垮，修复待行前确认</td><td>2026.9.1攻略</td></tr>
+        <tr><td>G16丹锡高速贡格尔站</td><td><span class="ok">✅</span> 达里湖南下即可上站→经棚西枢纽转G1611，全程高速~1.5h</td><td>内蒙古交通厅</td></tr>
+        <tr><td>天太永村前小桥</td><td><span class="warn">⚠️</span> 2026.8.23被河水冲垮，修复情况待行前确认</td><td>2026.9.1攻略</td></tr>
         <tr><td>G233经棚—桦木沟段</td><td><span class="no">❌</span> 2026.4.8–12.31全线封闭施工</td><td>克旗融媒</td></tr>
         <tr><td>桦木沟森林公园</td><td><span class="warn">⚠️</span> 与乌兰布统分开售票约40元/人</td><td>2026.9.1攻略</td></tr>
-        <tr><td>达达线</td><td><span class="ok">✅</span> 达里湖↔石林135km全程柏油，「2025自驾精品线路」</td><td>赤峰市交通运输局</td></tr>
+        <tr><td>达达线</td><td><span class="ok">✅</span> 达里湖↔石林135km全程柏油，「2025自驾精品线路」</td><td>赤峰市交通运输局2026.2</td></tr>
         <tr><td>热阿线</td><td><span class="ok">✅</span> 热水塘↔石林南门~80km，免费</td><td>攻略多方一致</td></tr>
         <tr><td>乌兰布统</td><td><span class="ok">✅</span> 304省道/桦木沟/蛤蟆坝主干道免费穿行；核心景点120元/人通票（3日）；蛤蟆坝~30元、盘龙峡谷~20元</td><td>2026.8攻略</td></tr>
-        <tr><td>塞罕坝</td><td><span class="ok">✅</span> 大门票免费；泰丰湖/月亮湖/点将台免费；七星湖60元、塞罕塔20-25元</td><td>2025-2026攻略</td></tr>
-        <tr><td>铁砂线</td><td><span class="warn">⚠️</span> 黄岗梁—白音敖包~30km三级砂石路</td><td>本地宝</td></tr>
+        <tr><td>塞罕坝</td><td><span class="ok">✅</span> 大门票免费；泰丰湖/月亮湖/点将台免费；七星湖60元、塞罕塔20–25元</td><td>2025–2026攻略</td></tr>
+        <tr><td>铁砂线</td><td><span class="warn">⚠️</span> 黄岗梁—白音敖包~30km三级砂石路</td><td>本地宝（雨后慎入）</td></tr>
         <tr><td>达里湖北岸环湖公路</td><td><span class="ok">✅</span> ~30km免费开放</td><td>2026.9攻略</td></tr>
-        <tr><td>辽庆州白塔</td><td><span class="ok">✅</span> 免费，8:00-17:00，高73.27m</td><td>赤峰本地宝/巴林右旗政府网</td></tr>
+        <tr><td>辽庆州白塔</td><td><span class="ok">✅</span> 免费，8:00–17:00，高73.27m</td><td>赤峰本地宝/巴林右旗政府网</td></tr>
         <tr><td>玉龙沙湖</td><td>门票80元；<span class="ok">✅</span> 外围布日敦合作社免费玩沙（滑沙30/骆驼80自选）</td><td>马蜂窝/什么值得买</td></tr>
         <tr><td>国家一号风景大道</td><td><span class="warn">⚠️</span> 御道口→丰宁大滩方向（向西）；去围场走S256省道~80km</td><td>河北省政府2023</td></tr>
         <tr><td>承围高速S50</td><td><span class="ok">✅</span> 已通车，承德↔围场~140km</td><td>百科/多方一致</td></tr>
         <tr><td>索博日嘎→石林南门</td><td><span class="warn">⚠️</span> 县乡道存在但路况待行前核实（高德实测）</td><td>综合推断</td></tr>
-      </table>
-    </div>
-    <p style="margin-top:6px;font-size:12px;color:var(--amber);"><b>行前3天最后刷一遍</b>：S220通车公告 ｜ 天太永小桥修复情况 ｜ 盘龙峡谷谷底道路</p>
-  </section>
+      </tbody>
+    </table>
+  </div>
+  <div class="note gold" style="margin-top:14px"><b>📌 行前3天最后刷一遍：</b>S220通车公告 ｜ 天太永小桥修复情况 ｜ 盘龙峡谷谷底道路</div>
+</section>
 
 </main>
-</div>
 
+<footer>
+  <div class="wrap">
+    <p class="foot-note">赤峰—克什克腾—塞罕坝 · 中秋+国庆7天自驾秋色大环线 ｜ 数据核验于 2026.9.5 ｜ 住宿与门票价格以预订实价为准</p>
+  </div>
+</footer>
+
+<script src="../t-wulanbutong/assets/js/echarts.min.js"></script>
 <script>
-  // Nav active state on scroll
-  const sections = document.querySelectorAll('section, .header');
-  const navLinks = document.querySelectorAll('nav a');
-  const obs = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        const id = e.target.id;
-        navLinks.forEach(a => {
-          a.classList.toggle('active', a.getAttribute('href') === '#' + id);
+(function(){
+  var s = getComputedStyle(document.documentElement);
+  var accent = s.getPropertyValue('--accent').trim();
+  var accent2 = s.getPropertyValue('--accent2').trim();
+  var gold = s.getPropertyValue('--gold').trim();
+  var ink = s.getPropertyValue('--ink').trim();
+  var muted = s.getPropertyValue('--muted').trim();
+  var rule = s.getPropertyValue('--rule').trim();
+
+  // --- Chart 1: daily mileage ---
+  var mileageEl = document.getElementById('chart-mileage');
+  if(mileageEl && window.echarts){
+    var c1 = echarts.init(mileageEl, null, {renderer:'svg'});
+    c1.setOption({
+      animation:false,
+      grid:{left:48,right:24,top:40,bottom:36},
+      tooltip:{trigger:'axis',appendToBody:true,backgroundColor:'#fff',borderColor:rule,textStyle:{color:ink,fontSize:13},formatter:function(p){return p[0].name+'：'+p[0].value+' km'}},
+      xAxis:{type:'category',data:['D1 赶路','D2 白塔','D3 峰值日','D4 深度','D5 慢游','D6 林海','D7 返京'],axisLine:{lineStyle:{color:rule}},axisTick:{show:false},axisLabel:{color:muted,fontSize:12}},
+      yAxis:{type:'value',name:'km',nameTextStyle:{color:muted},axisLine:{show:false},axisTick:{show:false},splitLine:{lineStyle:{color:rule,type:'dashed'}},axisLabel:{color:muted,fontSize:12}},
+      series:[{
+        type:'bar',barWidth:'52%',
+        data:[650,250,360,120,100,140,500],
+        itemStyle:{color:function(p){if(p.dataIndex===2)return gold;if(p.dataIndex===0||p.dataIndex===6)return accent2;return accent;},borderRadius:[4,4,0,0]},
+        label:{show:true,position:'top',color:ink,fontSize:12,fontWeight:600,formatter:'{c}'}
+      }]
+    });
+    window.addEventListener('resize',function(){c1.resize()});
+  }
+
+  // --- Chart 2: budget donut ---
+  var budgetEl = document.getElementById('chart-budget');
+  if(budgetEl && window.echarts){
+    var c2 = echarts.init(budgetEl, null, {renderer:'svg'});
+    c2.setOption({
+      animation:false,
+      tooltip:{trigger:'item',appendToBody:true,backgroundColor:'#fff',borderColor:rule,textStyle:{color:ink,fontSize:13},formatter:function(p){return p.name+'：¥'+p.value+'（'+p.percent+'%）'}},
+      legend:{bottom:0,icon:'circle',itemWidth:10,itemHeight:10,textStyle:{color:muted,fontSize:12}},
+      series:[{
+        type:'pie',radius:['42%','68%'],center:['50%','44%'],avoidLabelOverlap:true,
+        itemStyle:{borderColor:'#fff',borderWidth:2},
+        label:{show:true,color:ink,fontSize:12,formatter:function(p){return '¥'+p.value}},
+        labelLine:{lineStyle:{color:rule}},
+        data:[
+          {value:2150,name:'住宿 6晚',itemStyle:{color:accent}},
+          {value:1700,name:'油费 ~2100km',itemStyle:{color:accent2}},
+          {value:1500,name:'餐饮 7天',itemStyle:{color:gold}},
+          {value:450,name:'过路费（返程免费）',itemStyle:{color:muted}},
+          {value:0,name:'门票 0元',itemStyle:{color:accent+'66'}}
+        ]
+      }]
+    });
+    window.addEventListener('resize',function(){c2.resize()});
+  }
+
+  // --- Nav active state ---
+  var navLinks = document.querySelectorAll('.nav a');
+  var sections = document.querySelectorAll('section[id], article[id]');
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        var id = e.target.id;
+        navLinks.forEach(function(a){
+          a.classList.toggle('active', a.getAttribute('href') === '#'+id);
         });
       }
     });
-  }, { rootMargin: '-20% 0px -70% 0px' });
-  sections.forEach(s => s.id && obs.observe(s));
-  // Smooth scroll
-  navLinks.forEach(a => a.addEventListener('click', e => {
-    e.preventDefault();
-    const t = document.querySelector(a.getAttribute('href'));
-    if (t) t.scrollIntoView({ behavior:'smooth', block:'start' });
-  }));
+  }, {rootMargin:'-30% 0px -60% 0px'});
+  sections.forEach(function(s){obs.observe(s)});
+})();
 </script>
 </body>
 </html>
